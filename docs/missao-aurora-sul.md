@@ -69,6 +69,8 @@ Links de trabalho: [Moon Trek](https://trek.nasa.gov/moon/), [LROC QuickMap](htt
 
 A equipe registrou a consulta de terreno no QuickMap em projeção estereográfica do polo sul, com mosaico LROC e camada LOLA ativa: [abrir a consulta salva](https://quickmap.lroc.im-ldi.com/?prjExtent=-114847.40672%2C-65694.9429387%2C130596.834084%2C52385.6449216&earthShadowEnabled=true&proj=27&stack=3314%2C3351&defs=N4IgzGCMAsIFygPYAcCGBjAlgFwJ70gF8AacMAVkniTSzwMMKA&time=2026-10-18T05%3A49%3A36.085Z&startTime=2026-09-21T14%3A31%3A06.003Z&stopTime=2026-10-21T03%3A13%3A06.003Z).
 
+A camada térmica foi registrada separadamente: [Diviner Global Max Temp no QuickMap](https://bit.ly/4h2Juvw). A captura serve para reproduzir a configuração de visualização da temperatura máxima; a interpretação permanece limitada ao que a camada e sua legenda informam.
+
 Esse link preserva a projeção, a extensão do mapa, as camadas e o intervalo de tempo usados na consulta. Ele permite que outra pessoa reproduza a visualização. A equipe ainda deve identificar no material entregue que a referência geográfica da cratera Shackleton é 89,66° S e 130,20° E, e explicar o limite da camada de declividade.
 
 ## Extração proposta
