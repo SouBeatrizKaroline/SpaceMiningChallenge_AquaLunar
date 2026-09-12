@@ -6,7 +6,7 @@ Um laboratório interativo para apoiar uma missão de **mineração de água lun
 
 [Abrir laboratório](https://soubeatrizkaroline.github.io/SpaceMiningChallenge_AquaLunar/) · [Método](./docs/metodologia.md) · [Fontes](./docs/fontes.md) · [Contribuir](./CONTRIBUTING.md)
 
-**MVP funcional v0.1.0.** [Aplicação ao desafio](./docs/desafio.md) · [Integrações e dados externos](./docs/integracoes.md) · [Validação e limites](./docs/validacao.md)
+**MVP funcional v0.1.0.** [Aplicação ao desafio](./docs/desafio.md) · [Integrações e dados externos](./docs/integracoes.md) · [Validação e limites](./docs/validacao.md) · [Status do desafio](./docs/status-desafio.md)
 
 [Comparação de recursos](./docs/recursos.md) · [Missão Aurora Sul com evidências verificáveis](./docs/missao-aurora-sul.md)
 
