@@ -1,89 +1,1273 @@
-import {useState,useMemo,useEffect,useRef} from 'react';
-import {Droplets,ArrowUpRight,ArrowRight,ArrowDownToLine,FlaskConical,SlidersHorizontal,Layers,Scale,Zap,ChevronRight,BookOpen,Info,Check,RotateCcw,Save,Menu,X,Beaker,Orbit,Search,ShieldCheck,Wind,Mountain,Target} from 'lucide-react';
-import {calculate,defaultScenario,presets,uses,sources,isScenario,questions,sensitivity,report,type Scenario,type Use} from './model';
+import { useState, useMemo, useEffect, useRef } from "react";
+import {
+  Droplets,
+  ArrowUpRight,
+  ArrowRight,
+  ArrowDownToLine,
+  FlaskConical,
+  SlidersHorizontal,
+  Layers,
+  Scale,
+  Zap,
+  ChevronRight,
+  BookOpen,
+  Info,
+  Check,
+  RotateCcw,
+  Save,
+  Menu,
+  X,
+  Beaker,
+  Orbit,
+  Search,
+  ShieldCheck,
+  Wind,
+  Mountain,
+  Target,
+} from "lucide-react";
+import {
+  calculate,
+  defaultScenario,
+  presets,
+  uses,
+  sources,
+  isScenario,
+  questions,
+  sensitivity,
+  report,
+  type Scenario,
+  type Use,
+} from "./model";
 
-const fmt=(v:number,digits=0)=>v.toLocaleString('pt-BR',{maximumFractionDigits:digits});
-const STORAGE='aqua-lunar.scenario.v1';
-function load():Scenario|null{try{const x=JSON.parse(localStorage.getItem(STORAGE)||'null');return isScenario(x)?x:null}catch{return null}}
-type View='lab'|'compare'|'sources'|'method';
-const phases=[
- {name:'Caracterizar',caption:'Antes de escavar',icon:Search,detail:'Medir concentração, profundidade, distribuição do gelo e composição. Uma detecção regional não informa tudo sobre o material que entra no equipamento.',question:'Que amostra reduziria mais a incerteza?',source:'lcross'},
- {name:'Acessar',caption:'Cobertura e terreno',icon:Mountain,detail:'Investigar como alcançar a camada com gelo. Neste modelo, a cobertura é uniforme, sem gelo e removida em uma área fixa. Não há cálculo de rota ou estabilidade.',question:'Quanto material precisa ser removido antes da camada de interesse?',source:'lola'},
- {name:'Extrair e capturar',caption:'Separar do regolito',icon:Wind,detail:'Estudar uma rota térmica de liberação e captura de água. Recuperação não é 100% por padrão. A energia específica precisa ser medida para o material e o equipamento.',question:'Qual fração da água contida consegue ser capturada?',source:'extract'},
- {name:'Separar e qualificar',caption:'Investigar coextraídos',icon:Beaker,detail:'Planejar separação de poeira e de outras espécies coextraídas. A recuperação de água nesta etapa é um balanço de massa, não uma medida de pureza.',question:'Quais contaminantes existem e qual processo é necessário?',source:'chain'},
- {name:'Destinar',caption:'Finalidade define requisitos',icon:Target,detail:'A mesma água pode seguir para pesquisa, suporte à vida ou eletrólise. Cada destino exige sua própria qualificação, equipamentos e armazenamento.',question:'Quais requisitos o produto precisa atender para esse uso?',source:'water'},
+const fmt = (v: number, digits = 0) =>
+  v.toLocaleString("pt-BR", { maximumFractionDigits: digits });
+const STORAGE = "aqua-lunar.scenario.v1";
+function load(): Scenario | null {
+  try {
+    const x = JSON.parse(localStorage.getItem(STORAGE) || "null");
+    return isScenario(x) ? x : null;
+  } catch {
+    return null;
+  }
+}
+type View = "lab" | "compare" | "sources" | "method";
+const phases = [
+  {
+    name: "Caracterizar",
+    caption: "Antes de escavar",
+    icon: Search,
+    detail:
+      "Medir concentração, profundidade, distribuição do gelo e composição. Uma detecção regional não informa tudo sobre o material que entra no equipamento.",
+    question: "Que amostra reduziria mais a incerteza?",
+    source: "lcross",
+  },
+  {
+    name: "Acessar",
+    caption: "Cobertura e terreno",
+    icon: Mountain,
+    detail:
+      "Investigar como alcançar a camada com gelo. Neste modelo, a cobertura é uniforme, sem gelo e removida em uma área fixa. Não há cálculo de rota ou estabilidade.",
+    question:
+      "Quanto material precisa ser removido antes da camada de interesse?",
+    source: "lola",
+  },
+  {
+    name: "Extrair e capturar",
+    caption: "Separar do regolito",
+    icon: Wind,
+    detail:
+      "Estudar uma rota térmica de liberação e captura de água. Recuperação não é 100% por padrão. A energia específica precisa ser medida para o material e o equipamento.",
+    question: "Qual fração da água contida consegue ser capturada?",
+    source: "extract",
+  },
+  {
+    name: "Separar e qualificar",
+    caption: "Investigar coextraídos",
+    icon: Beaker,
+    detail:
+      "Planejar separação de poeira e de outras espécies coextraídas. A recuperação de água nesta etapa é um balanço de massa, não uma medida de pureza.",
+    question: "Quais contaminantes existem e qual processo é necessário?",
+    source: "chain",
+  },
+  {
+    name: "Destinar",
+    caption: "Finalidade define requisitos",
+    icon: Target,
+    detail:
+      "A mesma água pode seguir para pesquisa, suporte à vida ou eletrólise. Cada destino exige sua própria qualificação, equipamentos e armazenamento.",
+    question: "Quais requisitos o produto precisa atender para esse uso?",
+    source: "water",
+  },
 ];
-function Range({label,value,min,max,step=1,unit,onChange,hint}:{label:string,value:number,min:number,max:number,step?:number,unit:string,onChange:(v:number)=>void,hint?:string}){
- const id=label.toLowerCase().replace(/\s+/g,'-');
- return <div className="range"><label htmlFor={id}><span>{label}</span><output>{fmt(value,2)}<small>{unit}</small></output></label><input id={id} type="range" min={min} max={max} step={step} value={value} onChange={e=>onChange(Number(e.target.value))} style={{'--position':`${(value-min)/(max-min)*100}%`} as React.CSSProperties}/>{hint&&<span className="input-hint">{hint}</span>}</div>
+function Range({
+  label,
+  value,
+  min,
+  max,
+  step = 1,
+  unit,
+  onChange,
+  hint,
+}: {
+  label: string;
+  value: number;
+  min: number;
+  max: number;
+  step?: number;
+  unit: string;
+  onChange: (v: number) => void;
+  hint?: string;
+}) {
+  const id = label.toLowerCase().replace(/\s+/g, "-");
+  return (
+    <div className="range">
+      <label htmlFor={id}>
+        <span>{label}</span>
+        <output>
+          {fmt(value, 2)}
+          <small>{unit}</small>
+        </output>
+      </label>
+      <input
+        id={id}
+        type="range"
+        min={min}
+        max={max}
+        step={step}
+        value={value}
+        onChange={(e) => onChange(Number(e.target.value))}
+        style={
+          {
+            "--position": `${((value - min) / (max - min)) * 100}%`,
+          } as React.CSSProperties
+        }
+      />
+      {hint && <span className="input-hint">{hint}</span>}
+    </div>
+  );
 }
-function MaterialView({s}:{s:Scenario}){
- const cap=24+s.depth*.33;
- const grains=Array.from({length:Math.round(12+s.concentration*4)},(_,i)=>({x:39+(i*73%425),y:177+cap+(i*37%Math.max(20,154-cap))}));
- return <div className="material-view"><div className="material-title"><span><span className="live-dot"/> CORTE CONCEITUAL</span><span>SEM ESCALA GEOLÓGICA</span></div><svg viewBox="0 0 720 380" role="img" aria-label={`Representação de regolito com ${fmt(s.depth)} centímetros de cobertura e ${fmt(s.concentration,1)} por cento de gelo na alimentação. Ilustração, sem medição local.`}>
- <defs><linearGradient id="soil" x2="0" y2="1"><stop stopColor="#50626b"/><stop offset="1" stopColor="#233843"/></linearGradient><linearGradient id="ice" x2="0" y2="1"><stop stopColor="#4d929d" stopOpacity=".25"/><stop offset="1" stopColor="#243d49"/></linearGradient><linearGradient id="tank" x2="0" y2="1"><stop stopColor="#a4f8e9" stopOpacity=".95"/><stop offset="1" stopColor="#45aaa9" stopOpacity=".45"/></linearGradient><pattern id="grain" width="19" height="16" patternUnits="userSpaceOnUse"><circle cx="3" cy="4" r=".9" fill="#ced8d3" opacity=".25"/><circle cx="15" cy="12" r="1.3" fill="#c8d6d7" opacity=".13"/></pattern></defs>
- <g className="stars" fill="#71919b">{Array.from({length:18},(_,i)=><circle key={i} cx={20+i*39} cy={20+(i*31%80)} r={i%3===0?1.2:.6}/>)}</g>
- <circle cx="628" cy="57" r="27" fill="none" stroke="#426572"/><ellipse cx="628" cy="57" rx="38" ry="11" fill="none" stroke="#426572" transform="rotate(-28 628 57)"/>
- <path d="M25 162L68 156L103 160L139 151L181 157L225 148L264 153L310 148L365 154L411 145L457 153L490 148V346H25Z" fill="url(#soil)"/>
- <rect x="25" y={169+cap} width="465" height={177-cap} fill="url(#ice)"/>
- <path d="M25 162L68 156L103 160L139 151L181 157L225 148L264 153L310 148L365 154L411 145L457 153L490 148" fill="none" stroke="#96a7a6" strokeWidth="2"/>
- <rect x="25" y="166" width="465" height="180" fill="url(#grain)"/>
- {grains.map((g,i)=><path key={i} d={`M${g.x} ${g.y-3}l3 3-3 4-3-4Z`} fill={i%3===0?'#b3f8ed':'#79c8d2'} opacity={.35+(i%5)*.1}/>)}
- <line x1="30" x2="486" y1={169+cap} y2={169+cap} stroke="#8db1b8" strokeDasharray="5 5" opacity=".5"/>
- <path d={`M504 158h8v${11+cap}h-8`} fill="none" stroke="#9eafb0"/><text x="525" y={164+cap*.5} fill="#bfcfd1" fontSize="13">{fmt(s.depth)} cm</text><text x="525" y={184+cap*.5} fill="#79949b" fontSize="10">cobertura assumida</text>
- <path d="M204 142l22-75h46l22 75" stroke="#97b6b8" strokeWidth="4" fill="none"/><line x1="227" y1="79" x2="270" y2="129" stroke="#658f97"/><line x1="270" y1="79" x2="221" y2="129" stroke="#658f97"/><rect x="237" y="90" width="19" height="40" rx="3" fill="#98e5dc"/><line x1="247" y1="130" x2="247" y2={204+cap} stroke="#c9d9d3" strokeWidth="7"/>
- <path d={`M239 ${180+cap}l16 7-16 7 16 7-16 7`} fill="none" stroke="#81c6ca" strokeWidth="3"/>
- <rect x="196" y="133" width="111" height="17" rx="3" fill="#273f49" stroke="#7b9f9d"/>
- <path d="M257 105H565Q585 105 585 128V240" fill="none" stroke="#46656b" strokeWidth="8"/><path className="flow-path" d="M257 105H565Q585 105 585 128V240" fill="none" stroke="#96ede0" strokeWidth="2" strokeDasharray="4 12"/>
- <rect x="551" y="235" width="87" height="110" rx="11" fill="#172f3d" stroke="#769ba1" strokeWidth="2"/>
- <rect x="559" y={331-s.recovery*.7} width="71" height={7+s.recovery*.7} rx="4" fill="url(#tank)"/>
- <line x1="549" x2="640" y1="258" y2="258" stroke="#557b80"/>
- <text x="594" y="283" fill="#e7fffa" fontSize="16" textAnchor="middle">H₂O</text><text x="594" y="303" fill="#e7fffa" fontSize="11" textAnchor="middle">captura {s.recovery}%</text>
- <text x="40" y="366" fill="#8eabb0" fontSize="11">MATERIAL COM GELO</text><text x="490" y="366" textAnchor="end" fill="#8fe3d7" fontSize="12">{fmt(s.concentration,1)}% em massa</text><text x="594" y="366" textAnchor="middle" fill="#8eabb0" fontSize="10">ÁGUA + COEXTRAÍDOS</text>
- </svg><div className="material-caption"><span><i className="legend-soil"/> Regolito</span><span><i className="legend-ice"/> Gelo</span><span><i className="legend-capture"/> Captura</span><span>Aparência ilustrativa</span></div></div>
+function MaterialView({ s }: { s: Scenario }) {
+  const cap = 24 + s.depth * 0.33;
+  const grains = Array.from(
+    { length: Math.round(12 + s.concentration * 4) },
+    (_, i) => ({
+      x: 39 + ((i * 73) % 425),
+      y: 177 + cap + ((i * 37) % Math.max(20, 154 - cap)),
+    }),
+  );
+  return (
+    <div className="material-view">
+      <div className="material-title">
+        <span>
+          <span className="live-dot" /> CORTE CONCEITUAL
+        </span>
+        <span>SEM ESCALA GEOLÓGICA</span>
+      </div>
+      <svg
+        viewBox="0 0 720 380"
+        role="img"
+        aria-label={`Representação de regolito com ${fmt(s.depth)} centímetros de cobertura e ${fmt(s.concentration, 1)} por cento de gelo na alimentação. Ilustração, sem medição local.`}
+      >
+        <defs>
+          <linearGradient id="soil" x2="0" y2="1">
+            <stop stopColor="#50626b" />
+            <stop offset="1" stopColor="#233843" />
+          </linearGradient>
+          <linearGradient id="ice" x2="0" y2="1">
+            <stop stopColor="#4d929d" stopOpacity=".25" />
+            <stop offset="1" stopColor="#243d49" />
+          </linearGradient>
+          <linearGradient id="tank" x2="0" y2="1">
+            <stop stopColor="#a4f8e9" stopOpacity=".95" />
+            <stop offset="1" stopColor="#45aaa9" stopOpacity=".45" />
+          </linearGradient>
+          <pattern
+            id="grain"
+            width="19"
+            height="16"
+            patternUnits="userSpaceOnUse"
+          >
+            <circle cx="3" cy="4" r=".9" fill="#ced8d3" opacity=".25" />
+            <circle cx="15" cy="12" r="1.3" fill="#c8d6d7" opacity=".13" />
+          </pattern>
+        </defs>
+        <g className="stars" fill="#71919b">
+          {Array.from({ length: 18 }, (_, i) => (
+            <circle
+              key={i}
+              cx={20 + i * 39}
+              cy={20 + ((i * 31) % 80)}
+              r={i % 3 === 0 ? 1.2 : 0.6}
+            />
+          ))}
+        </g>
+        <circle cx="628" cy="57" r="27" fill="none" stroke="#426572" />
+        <ellipse
+          cx="628"
+          cy="57"
+          rx="38"
+          ry="11"
+          fill="none"
+          stroke="#426572"
+          transform="rotate(-28 628 57)"
+        />
+        <path
+          d="M25 162L68 156L103 160L139 151L181 157L225 148L264 153L310 148L365 154L411 145L457 153L490 148V346H25Z"
+          fill="url(#soil)"
+        />
+        <rect
+          x="25"
+          y={169 + cap}
+          width="465"
+          height={177 - cap}
+          fill="url(#ice)"
+        />
+        <path
+          d="M25 162L68 156L103 160L139 151L181 157L225 148L264 153L310 148L365 154L411 145L457 153L490 148"
+          fill="none"
+          stroke="#96a7a6"
+          strokeWidth="2"
+        />
+        <rect x="25" y="166" width="465" height="180" fill="url(#grain)" />
+        {grains.map((g, i) => (
+          <path
+            key={i}
+            d={`M${g.x} ${g.y - 3}l3 3-3 4-3-4Z`}
+            fill={i % 3 === 0 ? "#b3f8ed" : "#79c8d2"}
+            opacity={0.35 + (i % 5) * 0.1}
+          />
+        ))}
+        <line
+          x1="30"
+          x2="486"
+          y1={169 + cap}
+          y2={169 + cap}
+          stroke="#8db1b8"
+          strokeDasharray="5 5"
+          opacity=".5"
+        />
+        <path d={`M504 158h8v${11 + cap}h-8`} fill="none" stroke="#9eafb0" />
+        <text x="525" y={164 + cap * 0.5} fill="#bfcfd1" fontSize="13">
+          {fmt(s.depth)} cm
+        </text>
+        <text x="525" y={184 + cap * 0.5} fill="#79949b" fontSize="10">
+          cobertura assumida
+        </text>
+        <path
+          d="M204 142l22-75h46l22 75"
+          stroke="#97b6b8"
+          strokeWidth="4"
+          fill="none"
+        />
+        <line x1="227" y1="79" x2="270" y2="129" stroke="#658f97" />
+        <line x1="270" y1="79" x2="221" y2="129" stroke="#658f97" />
+        <rect x="237" y="90" width="19" height="40" rx="3" fill="#98e5dc" />
+        <line
+          x1="247"
+          y1="130"
+          x2="247"
+          y2={204 + cap}
+          stroke="#c9d9d3"
+          strokeWidth="7"
+        />
+        <path
+          d={`M239 ${180 + cap}l16 7-16 7 16 7-16 7`}
+          fill="none"
+          stroke="#81c6ca"
+          strokeWidth="3"
+        />
+        <rect
+          x="196"
+          y="133"
+          width="111"
+          height="17"
+          rx="3"
+          fill="#273f49"
+          stroke="#7b9f9d"
+        />
+        <path
+          d="M257 105H565Q585 105 585 128V240"
+          fill="none"
+          stroke="#46656b"
+          strokeWidth="8"
+        />
+        <path
+          className="flow-path"
+          d="M257 105H565Q585 105 585 128V240"
+          fill="none"
+          stroke="#96ede0"
+          strokeWidth="2"
+          strokeDasharray="4 12"
+        />
+        <rect
+          x="551"
+          y="235"
+          width="87"
+          height="110"
+          rx="11"
+          fill="#172f3d"
+          stroke="#769ba1"
+          strokeWidth="2"
+        />
+        <rect
+          x="559"
+          y={331 - s.recovery * 0.7}
+          width="71"
+          height={7 + s.recovery * 0.7}
+          rx="4"
+          fill="url(#tank)"
+        />
+        <line x1="549" x2="640" y1="258" y2="258" stroke="#557b80" />
+        <text x="594" y="283" fill="#e7fffa" fontSize="16" textAnchor="middle">
+          H₂O
+        </text>
+        <text x="594" y="303" fill="#e7fffa" fontSize="11" textAnchor="middle">
+          captura {s.recovery}%
+        </text>
+        <text x="40" y="366" fill="#8eabb0" fontSize="11">
+          MATERIAL COM GELO
+        </text>
+        <text x="490" y="366" textAnchor="end" fill="#8fe3d7" fontSize="12">
+          {fmt(s.concentration, 1)}% em massa
+        </text>
+        <text x="594" y="366" textAnchor="middle" fill="#8eabb0" fontSize="10">
+          ÁGUA + COEXTRAÍDOS
+        </text>
+      </svg>
+      <div className="material-caption">
+        <span>
+          <i className="legend-soil" /> Regolito
+        </span>
+        <span>
+          <i className="legend-ice" /> Gelo
+        </span>
+        <span>
+          <i className="legend-capture" /> Captura
+        </span>
+        <span>Aparência ilustrativa</span>
+      </div>
+    </div>
+  );
 }
-export default function App(){
- const [s,setS]=useState<Scenario>(()=>load()||{...defaultScenario});
- const [saved,setSaved]=useState<Scenario|null>(load);
- const [view,setView]=useState<View>('lab');
- const [phase,setPhase]=useState(0);
- const [query,setQuery]=useState('');
- const [notice,setNotice]=useState('');
- const [menu,setMenu]=useState(false);
- const dialog=useRef<HTMLDialogElement>(null);
- const r=useMemo(()=>calculate(s),[s]);
- const curve=useMemo(()=>sensitivity(s),[s]);
- const patch=(x:Partial<Scenario>)=>setS(old=>({...old,...x}));
- useEffect(()=>{if(notice){const timer=setTimeout(()=>setNotice(''),3500);return()=>clearTimeout(timer)}},[notice]);
- const nav=(v:View)=>{setView(v);setMenu(false);window.scrollTo({top:0,behavior:'instant'})};
- function save(){try{localStorage.setItem(STORAGE,JSON.stringify(s));setSaved({...s});setNotice('Cenário salvo neste navegador e disponível para comparar.')}catch{setNotice('Não foi possível salvar neste navegador. Exporte o relatório.')}}
- function reset(){setS({...defaultScenario});setNotice('Premissas iniciais restauradas. O cenário salvo foi mantido.');}
- function download(){const url=URL.createObjectURL(new Blob([report(s)],{type:'text/markdown;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='aqua-lunar-cenario.md';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);setNotice('Relatório exportado com cálculos, premissas e fontes.');}
- const navs:[View,string][]=[['lab','Laboratório'],['compare','Comparar cenários'],['sources','Evidências'],['method','O método']];
- const comparisons=[s,...presets.map(p=>({...p,target:s.target,use:s.use,area:s.area,thermal:s.thermal,budget:s.budget})),...(saved?[saved]:[])];
- return <><a className="skip-link" href="#main">Pular para o conteúdo</a><header className="header"><a className="brand" href="#" onClick={e=>{e.preventDefault();nav('lab')}}><img src={`${import.meta.env.BASE_URL}favicon.svg`} alt=""/><strong>AQUA<span>LUNAR</span></strong></a><button className="mobile-menu icon-btn" aria-label="Abrir navegação" onClick={()=>setMenu(!menu)}><Menu size={22}/></button><nav className={menu?'open':''} aria-label="Navegação principal">{navs.map(([v,label])=><button key={v} className={view===v?'active':''} aria-current={view===v?'page':undefined} onClick={()=>nav(v)}>{label}</button>)}</nav><div className="header-right"><span className="version"><i/> LAB v0.1</span><a href="https://github.com/SouBeatrizKaroline/aqua-lunar" target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={15}/></a></div></header>
- <main id="main"><section className="hero"><div><span className="eyebrow"><Orbit size={14}/> RECURSOS LUNARES · ÁGUA</span><h1>{view==='lab'?<>A mesma molécula.<br/><em>Outra missão.</em></>:view==='compare'?<>A mesma meta.<br/><em>Outros caminhos.</em></>:view==='sources'?<>Uma hipótese precisa<br/><em>de evidência.</em></>:<>O que calculamos.<br/><em>O que ainda falta.</em></>}</h1><p>{view==='lab'?'O que vem junto com o gelo muda a forma de extrair, separar e utilizar a água. Explore essas diferenças.':view==='compare'?'Compare materiais distintos sem perder de vista a quantidade de água que você quer obter.':view==='sources'?'Fontes primárias para investigar o material, o acesso e a cadeia de processamento.': 'Um balanço de massa explicável, uma estimativa parcial de energia e perguntas para a próxima investigação.'}</p></div><div className="hero-aside"><span className="molecule">H<span>2</span>O<i/></span><span>DO MATERIAL AO PROPÓSITO</span><button className="button outline" onClick={()=>dialog.current?.showModal()}><Info size={15}/> Como usar o laboratório</button></div></section>
- {view==='lab'&&<>
- <div className="lab-toolbar"><div><span className="eyebrow">01 / EXPLORE AS PREMISSAS</span><h2>Que material você espera encontrar?</h2></div><div className="toolbar-actions"><button className="text-button" onClick={reset}><RotateCcw size={15}/> Restaurar</button><button className="button outline" onClick={download}><ArrowDownToLine size={16}/> Exportar relatório</button></div></div>
- <div className="preset-row">{presets.map((p,i)=><button key={p.name} className={s.name===p.name?'chosen':''} onClick={()=>setS({...p,target:s.target,use:s.use,budget:s.budget})}><span className="preset-number">0{i+1}</span><div><strong>{p.name}</strong><span>{i===0?'Pouco gelo, mais material':i===1?'Mais gelo, maior cobertura':'Recuperação menor na separação'}</span></div><ArrowUpRight size={17}/></button>)}<span className="preset-note"><Info size={14}/> Perfis hipotéticos.<br/>Não representam jazidas medidas.</span></div>
- <div className="lab-grid"><aside className="controls"><div className="panel-heading"><span><SlidersHorizontal size={17}/> Material e missão</span><span className="mini-pill">HIPÓTESES</span></div><label className="select-label" htmlFor="purpose">Para que usar?</label><select id="purpose" value={s.use} onChange={e=>patch({use:e.target.value as Use})}>{Object.entries(uses).map(([id,v])=><option key={id} value={id}>{v.name}</option>)}</select>
- <Range label="Meta de água separada" value={s.target} min={10} max={500} step={10} unit="kg" onChange={target=>patch({target})}/>
- <div className="control-divider"/>
- <Range label="Concentração de gelo" value={s.concentration} min={.5} max={20} step={.5} unit="%" onChange={concentration=>patch({concentration})} hint="Fração de gelo na massa alimentada."/>
- <Range label="Cobertura sem gelo" value={s.depth} min={0} max={200} step={5} unit="cm" onChange={depth=>patch({depth})} hint="Espessura hipotética até a camada de interesse."/>
- <Range label="Recuperação na captura" value={s.recovery} min={10} max={100} step={5} unit="%" onChange={recovery=>patch({recovery})}/>
- <Range label="Recuperação na separação" value={s.separation} min={10} max={100} step={5} unit="%" onChange={separation=>patch({separation})} hint="Água recuperada nesta etapa. Não é pureza."/>
- <details className="advanced"><summary>Geometria e energia <ChevronRight size={14}/></summary><Range label="Área de escavação" value={s.area} min={1} max={50} unit="m²" onChange={area=>patch({area})}/><Range label="Energia térmica específica" value={s.thermal} min={.05} max={1} step={.05} unit="kWh/kg" onChange={thermal=>patch({thermal})} hint="Coeficiente assumido por kg alimentado."/><Range label="Orçamento parcial" value={s.budget} min={100} max={10000} step={100} unit="kWh" onChange={budget=>patch({budget})}/></details>
- <button className="button primary full" onClick={save}><Save size={16}/> Salvar cenário</button><span className="local-note">Armazenado apenas neste navegador.</span></aside>
- <div className="experiment"><MaterialView s={s}/><div className="experiment-bottom"><div><span className="eyebrow">A PERGUNTA MUDA O PROJETO</span><h3>{s.concentration<=3?'Quanto material para tão pouco gelo?':s.depth>=80?'O gelo compensa a escavação?':s.separation<80?'O que se perde na separação?':'Encontrar água é só o começo.'}</h3></div><div className="coextract"><span>Investigar junto com a água</span><label><input type="checkbox" checked={s.dust} onChange={e=>patch({dust:e.target.checked})}/> Poeira fina</label><label><input type="checkbox" checked={s.volatiles} onChange={e=>patch({volatiles:e.target.checked})}/> Outros voláteis</label></div></div></div>
- <aside className="results"><div className="panel-heading"><span><Scale size={18}/> Leitura do cenário</span></div><div className="target-result"><span>Para obter, antes de eventual eletrólise</span><strong>{fmt(s.target)} <small>kg</small></strong><span>de água após separação</span><i>Qualidade ainda precisa ser verificada</i></div><div className="metric"><span><Layers size={16}/> Material com gelo a processar</span><strong data-testid="feed">{fmt(r.feed)} <small>kg</small></strong></div><div className="metric"><span><Mountain size={16}/> Cobertura a remover</span><strong>{fmt(r.overburden)} <small>kg</small></strong></div><div className="metric energy"><span><Zap size={16}/> Energia parcial estimada</span><strong data-testid="energy">{fmt(r.energy)} <small>kWh</small></strong><span className={`budget ${r.withinBudget?'within':'over'}`}>{r.withinBudget?'Dentro do orçamento parcial':'Acima do orçamento parcial'} · {fmt(s.budget)} kWh</span></div><div className="qualify"><ShieldCheck size={18}/><p>{uses[s.use].qualification}</p></div></aside></div>
- <section className="process-section"><div className="section-heading"><div><span className="eyebrow">02 / ENTENDA O PROCESSO</span><h2>A água passa. A pergunta fica.</h2></div><span>Clique em cada etapa para investigar</span></div><div className="process-steps">{phases.map((p,i)=><button key={p.name} className={phase===i?'active':''} aria-pressed={phase===i} onClick={()=>setPhase(i)}><p.icon size={22}/><span className="phase-number">0{i+1}</span><strong>{p.name}</strong><span>{p.caption}</span>{i<4&&<ChevronRight className="step-arrow" size={16}/>}</button>)}</div><div className="phase-detail"><div><span className="eyebrow">{phases[phase].question}</span><p>{phases[phase].detail}</p></div><a href={sources.find(x=>x.id===phases[phase].source)!.url} target="_blank" rel="noreferrer">Consultar referência <ArrowUpRight size={16}/></a></div></section>
- <section className="analysis-grid"><div className="sensitivity-panel"><div className="section-heading"><div><span className="eyebrow">03 / MUDE UMA VARIÁVEL</span><h2>Menos gelo. Mais processamento.</h2></div><Scale size={22}/></div><p>Massa alimentada para a mesma meta de {fmt(s.target)} kg, mantendo as demais premissas. Selecione uma concentração.</p><div className="chart" role="group" aria-label="Sensibilidade à concentração de gelo">{curve.map((point)=><button key={point.concentration} className={point.concentration===s.concentration?'selected':''} aria-label={`Usar concentração de ${point.concentration}%: ${fmt(point.feed)} kg de material`} onClick={()=>patch({concentration:point.concentration})}><span className="bar-value">{fmt(point.feed)}</span><span className="bar-area"><i style={{height:`${Math.max(5,Math.sqrt(point.feed/curve[0].feed)*100)}%`}}/></span><span>{fmt(point.concentration,1)}%</span></button>)}</div><div className="chart-caption"><span>Eixo horizontal: gelo em massa</span><span>Altura em escala de raiz quadrada · massa em kg</span></div></div><div className="balance-panel"><span className="eyebrow">NENHUMA ETAPA É INVISÍVEL</span><h2>Para onde vai a água?</h2><div className="balance-row"><span>Contida no material</span><strong>{fmt(r.contained,1)} kg</strong></div><div className="balance-row loss"><span>Não capturada</span><strong>− {fmt(r.uncaptured,1)} kg</strong></div><div className="balance-row loss"><span>Perdida na separação</span><strong>− {fmt(r.separationLoss,1)} kg</strong></div><div className="balance-row final"><span>Após separação</span><strong>{fmt(s.target)} kg</strong></div>{r.electrolysis>0&&<div className="gas-results"><span>Conversão ideal total por eletrólise</span><div><strong>{fmt(r.oxygen,1)} kg O₂</strong><strong>{fmt(r.hydrogen,1)} kg H₂</strong></div><p>Água remanescente: 0 kg. Equivalentes químicos aproximados, sem perdas de conversão ou armazenamento.</p></div>}<p className="balance-note">Recuperar água não comprova potabilidade. Pureza, contaminantes e adequação ao uso exigem análise e validação.</p></div></section>
- <section className="question-panel"><span className="question-icon"><FlaskConical size={28}/></span><div><span className="eyebrow">ANTES DE ESCOLHER ONDE MINERAR</span><h2>O que falta medir?</h2><ul>{questions(s).map(q=><li key={q}>{q}</li>)}</ul></div><button className="button outline" onClick={()=>nav('sources')}>Explorar evidências <ArrowUpRight size={16}/></button></section>
- </>}
- {view==='compare'&&<><div className="comparison-intro"><Info size={20}/><p>Os três perfis usam sua meta, finalidade, área, coeficiente térmico e orçamento atuais. O cenário salvo preserva as condições originais, que podem ser diferentes.</p><button className="text-button" onClick={()=>nav('lab')}>Ajustar premissas <ArrowRight size={16}/></button></div><div className="comparison-grid">{comparisons.map((c,i)=>{const cr=calculate(c);return <article className={i===0?'comparison current':'comparison'} key={i}><span className="eyebrow">{i===0?'CENÁRIO ATUAL':i===4?'SALVO NESTE NAVEGADOR':'PERFIL HIPOTÉTICO'}</span><h2>{i===0?'Sua investigação':c.name}</h2><p>{uses[c.use].short} · meta {fmt(c.target)} kg</p><div className="comparison-main"><strong>{fmt(cr.feed)}</strong><span>kg de material com gelo</span></div><dl><div><dt>Concentração</dt><dd>{fmt(c.concentration,1)}%</dd></div><div><dt>Cobertura / área</dt><dd>{c.depth} cm / {c.area} m²</dd></div><div><dt>Captura / separação</dt><dd>{c.recovery}% / {c.separation}%</dd></div><div><dt>Massa total movimentada</dt><dd>{fmt(cr.moved)} kg</dd></div><div><dt>Energia parcial</dt><dd>{fmt(cr.energy)} kWh</dd></div><div><dt>Por kg de água separada</dt><dd>{fmt(cr.perKg,2)} kWh/kg</dd></div></dl><span className={`budget ${cr.withinBudget?'within':'over'}`}>{cr.withinBudget?'Atende ao orçamento parcial':'Excede o orçamento parcial'}</span><button className="button outline" onClick={()=>{setS({...c});nav('lab')}}>Investigar este cenário <ArrowRight size={15}/></button></article>})}</div><div className="comparison-intro"><ShieldCheck size={20}/><p>O menor consumo neste cálculo não basta para escolher uma missão. A energia é parcial e os perfis não foram calibrados com dados de jazidas. Contaminantes, acesso, equipamentos e condições térmicas podem mudar a decisão.</p></div></>}
- {view==='sources'&&<><div className="source-toolbar"><label><Search size={18}/><input aria-label="Buscar fontes" placeholder="Busque por gelo, NASA, processamento..." value={query} onChange={e=>setQuery(e.target.value)}/></label><span>{sources.length} fontes de referência</span></div><div className="source-grid">{sources.filter(x=>(x.title+x.agency+x.description).toLocaleLowerCase().includes(query.toLocaleLowerCase())).map((x,i)=><a className="source-card" href={x.url} target="_blank" rel="noreferrer" key={x.id}><div><span>0{i+1} / {x.kind}</span><ArrowUpRight size={19}/></div><span className="source-agency">{x.agency}</span><h2>{x.title}</h2><p>{x.description}</p><span className="source-cta">Abrir fonte primária <ArrowRight size={15}/></span></a>)}</div>{!sources.some(x=>(x.title+x.agency+x.description).toLocaleLowerCase().includes(query.toLocaleLowerCase()))&&<div className="empty"><BookOpen size={34}/><h2>Nenhuma referência encontrada</h2><button className="button outline" onClick={()=>setQuery('')}>Limpar busca</button></div>}<div className="comparison-intro"><Info size={19}/><p>Fontes reais para orientar perguntas. As concentrações, eficiências e coeficientes do simulador são hipóteses, sem extração automática desses acervos.</p></div></>}
- {view==='method'&&<><div className="method-grid"><article><span className="eyebrow">BALANÇO DE MASSA</span><h2>Uma conta que você consegue verificar.</h2><code>Alimentação = meta ÷ (fração de gelo × recuperação na captura × recuperação na separação)</code><p>Exemplo: para recuperar 100 kg, com 5% de gelo, captura de 70% e separação com recuperação de 90%, o modelo exige aproximadamente 3.175 kg de material com gelo.</p><p>A cobertura é calculada separadamente: área × espessura × densidade assumida de 1.500 kg/m³. A camada superior não contém gelo neste modelo.</p></article><article><span className="eyebrow">ENERGIA PARCIAL</span><h2>O que entra na estimativa.</h2><ul><li>Aquecimento: coeficiente ajustável × massa alimentada.</li><li>Movimentação: 0,005 kWh/kg de material total.</li><li>Separação: 0,02 kWh/kg de água capturada.</li><li>Eletrólise: 5,5 kWh/kg de água, somente nos objetivos que geram gases.</li></ul><p>Todos os coeficientes são hipóteses didáticas, sem calibração. O modelo omite sobrevivência térmica, reagentes, transporte espacial, comunicações, compressão, liquefação e armazenamento.</p></article><article><span className="eyebrow">COMPOSIÇÃO E QUALIDADE</span><h2>Recuperação não é pureza.</h2><p>As porcentagens dos controles representam frações de água que atravessam as etapas. Não representam remoção de contaminantes, qualidade da água ou desempenho real de um sistema.</p><p>Marcar poeira e outros voláteis acrescenta perguntas de investigação. Sem dados de composição, o modelo não atribui arbitrariamente energia ou tratamento a cada contaminante.</p></article><article><span className="eyebrow">FRONTEIRA DO MVP</span><h2>Uma investigação antes de uma conclusão.</h2><p>Não há reserva mineral estimada, seleção validada de local, análise de potabilidade ou janela operacional. Os três perfis representam hipóteses de materiais, sem associação a crateras reais.</p><p>Próxima etapa: escolher uma área no Moon Trek, registrar produtos e incertezas, caracterizar amostras e substituir coeficientes por ensaios rastreáveis.</p><a href="https://github.com/SouBeatrizKaroline/aqua-lunar/tree/main/docs" target="_blank" rel="noreferrer">Consultar documentação <ArrowUpRight size={15}/></a></article></div></>}
- <footer><a className="brand footer-brand" href="#" onClick={e=>{e.preventDefault();nav('lab')}}><Droplets size={22}/><strong>AQUA<span>LUNAR</span></strong></a><span>Entender o material. Escolher o processo.</span><a href="https://github.com/SouBeatrizKaroline/aqua-lunar" target="_blank" rel="noreferrer">Projeto aberto <ArrowUpRight size={14}/></a><small>© 2026</small></footer></main>
- <div role="status" aria-live="polite" className={`toast ${notice?'show':''}`}><Check size={18}/>{notice}</div><dialog ref={dialog} className="guide" onClick={e=>{if(e.target===e.currentTarget)dialog.current?.close()}}><button className="icon-btn close-guide" aria-label="Fechar guia" onClick={()=>dialog.current?.close()}><X size={20}/></button><Droplets size={34}/><span className="eyebrow">SUA PRÓXIMA INVESTIGAÇÃO</span><h2>Explore o que muda<br/>entre o gelo e o uso.</h2><ol><li><strong>Defina uma finalidade.</strong> Pesquisa, suporte à vida ou gases por eletrólise.</li><li><strong>Mude o material.</strong> Concentração, cobertura e recuperação alteram o balanço.</li><li><strong>Compare e questione.</strong> Examine perdas, energia e informações que faltam.</li></ol><p>Todos os números de entrada são hipóteses. A água calculada não tem qualidade certificada.</p><button className="button primary" onClick={()=>dialog.current?.close()}>Explorar o laboratório <ArrowRight size={16}/></button></dialog></>;
+export default function App() {
+  const [s, setS] = useState<Scenario>(() => load() || { ...defaultScenario });
+  const [saved, setSaved] = useState<Scenario | null>(load);
+  const [view, setView] = useState<View>("lab");
+  const [phase, setPhase] = useState(0);
+  const [query, setQuery] = useState("");
+  const [notice, setNotice] = useState("");
+  const [menu, setMenu] = useState(false);
+  const dialog = useRef<HTMLDialogElement>(null);
+  const r = useMemo(() => calculate(s), [s]);
+  const curve = useMemo(() => sensitivity(s), [s]);
+  const patch = (x: Partial<Scenario>) =>
+    setS((old) => ({ ...old, ...x, name: "Minha investigação" }));
+  useEffect(() => {
+    if (notice) {
+      const timer = setTimeout(() => setNotice(""), 3500);
+      return () => clearTimeout(timer);
+    }
+  }, [notice]);
+  const nav = (v: View) => {
+    setView(v);
+    setMenu(false);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  };
+  function save() {
+    try {
+      localStorage.setItem(STORAGE, JSON.stringify(s));
+      setSaved({ ...s });
+      setNotice("Cenário salvo neste navegador e disponível para comparar.");
+    } catch {
+      setNotice(
+        "Não foi possível salvar neste navegador. Exporte o relatório.",
+      );
+    }
+  }
+  function reset() {
+    setS({ ...defaultScenario });
+    setNotice("Premissas iniciais restauradas. O cenário salvo foi mantido.");
+  }
+  function download() {
+    const url = URL.createObjectURL(
+      new Blob([report(s)], { type: "text/markdown;charset=utf-8" }),
+    );
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "aqua-lunar-cenario.md";
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    setNotice("Relatório exportado com cálculos, premissas e fontes.");
+  }
+  const navs: [View, string][] = [
+    ["lab", "Laboratório"],
+    ["compare", "Comparar cenários"],
+    ["sources", "Evidências"],
+    ["method", "O método"],
+  ];
+  const comparisons = [
+    s,
+    ...presets.map((p) => ({
+      ...p,
+      target: s.target,
+      use: s.use,
+      area: s.area,
+      thermal: s.thermal,
+      budget: s.budget,
+    })),
+    ...(saved ? [saved] : []),
+  ];
+  return (
+    <>
+      <a className="skip-link" href="#main">
+        Pular para o conteúdo
+      </a>
+      <header className="header">
+        <a
+          className="brand"
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            nav("lab");
+          }}
+        >
+          <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="" />
+          <strong>
+            AQUA<span>LUNAR</span>
+          </strong>
+        </a>
+        <button
+          className="mobile-menu icon-btn"
+          aria-label={menu ? "Fechar navegação" : "Abrir navegação"}
+          aria-expanded={menu}
+          aria-controls="navigation"
+          onClick={() => setMenu(!menu)}
+        >
+          <Menu size={22} />
+        </button>
+        <nav
+          id="navigation"
+          className={menu ? "open" : ""}
+          aria-label="Navegação principal"
+        >
+          {navs.map(([v, label]) => (
+            <button
+              key={v}
+              className={view === v ? "active" : ""}
+              aria-current={view === v ? "page" : undefined}
+              onClick={() => nav(v)}
+            >
+              {label}
+            </button>
+          ))}
+        </nav>
+        <div className="header-right">
+          <span className="version">
+            <i /> LAB v0.1
+          </span>
+          <a
+            href="https://github.com/SouBeatrizKaroline/aqua-lunar"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub <ArrowUpRight size={15} />
+          </a>
+        </div>
+      </header>
+      <main id="main">
+        <section className="hero">
+          <div>
+            <span className="eyebrow">
+              <Orbit size={14} /> RECURSOS LUNARES · ÁGUA
+            </span>
+            <h1>
+              {view === "lab" ? (
+                <>
+                  A mesma molécula.
+                  <br />
+                  <em>Outra missão.</em>
+                </>
+              ) : view === "compare" ? (
+                <>
+                  A mesma meta.
+                  <br />
+                  <em>Outros caminhos.</em>
+                </>
+              ) : view === "sources" ? (
+                <>
+                  Uma hipótese precisa
+                  <br />
+                  <em>de evidência.</em>
+                </>
+              ) : (
+                <>
+                  O que calculamos.
+                  <br />
+                  <em>O que ainda falta.</em>
+                </>
+              )}
+            </h1>
+            <p>
+              {view === "lab"
+                ? "O que vem junto com o gelo muda a forma de extrair, separar e utilizar a água. Explore essas diferenças."
+                : view === "compare"
+                  ? "Compare materiais distintos sem perder de vista a quantidade de água que você quer obter."
+                  : view === "sources"
+                    ? "Fontes primárias para investigar o material, o acesso e a cadeia de processamento."
+                    : "Um balanço de massa explicável, uma estimativa parcial de energia e perguntas para a próxima investigação."}
+            </p>
+          </div>
+          <div className="hero-aside">
+            <span className="molecule">
+              H<span>2</span>O<i />
+            </span>
+            <span>DO MATERIAL AO PROPÓSITO</span>
+            <button
+              className="button outline"
+              onClick={() => dialog.current?.showModal()}
+            >
+              <Info size={15} /> Como usar o laboratório
+            </button>
+          </div>
+        </section>
+        {view === "lab" && (
+          <>
+            <div className="lab-toolbar">
+              <div>
+                <span className="eyebrow">01 / EXPLORE AS PREMISSAS</span>
+                <h2>Que material você espera encontrar?</h2>
+              </div>
+              <div className="toolbar-actions">
+                <button className="text-button" onClick={reset}>
+                  <RotateCcw size={15} /> Restaurar
+                </button>
+                <button className="button outline" onClick={download}>
+                  <ArrowDownToLine size={16} /> Exportar relatório
+                </button>
+              </div>
+            </div>
+            <div className="preset-row">
+              {presets.map((p, i) => (
+                <button
+                  key={p.name}
+                  className={s.name === p.name ? "chosen" : ""}
+                  onClick={() =>
+                    setS({
+                      ...p,
+                      target: s.target,
+                      use: s.use,
+                      area: s.area,
+                      thermal: s.thermal,
+                      budget: s.budget,
+                    })
+                  }
+                >
+                  <span className="preset-number">0{i + 1}</span>
+                  <div>
+                    <strong>{p.name}</strong>
+                    <span>
+                      {i === 0
+                        ? "Pouco gelo, mais material"
+                        : i === 1
+                          ? "Mais gelo, maior cobertura"
+                          : "Recuperação menor na separação"}
+                    </span>
+                  </div>
+                  <ArrowUpRight size={17} />
+                </button>
+              ))}
+              <span className="preset-note">
+                <Info size={14} /> Perfis hipotéticos.
+                <br />
+                Não representam jazidas medidas.
+              </span>
+            </div>
+            <div className="lab-grid">
+              <aside className="controls">
+                <div className="panel-heading">
+                  <span>
+                    <SlidersHorizontal size={17} /> Material e missão
+                  </span>
+                  <span className="mini-pill">HIPÓTESES</span>
+                </div>
+                <label className="select-label" htmlFor="purpose">
+                  Para que usar?
+                </label>
+                <select
+                  id="purpose"
+                  value={s.use}
+                  onChange={(e) => patch({ use: e.target.value as Use })}
+                >
+                  {Object.entries(uses).map(([id, v]) => (
+                    <option key={id} value={id}>
+                      {v.name}
+                    </option>
+                  ))}
+                </select>
+                <Range
+                  label="Meta de água separada"
+                  value={s.target}
+                  min={10}
+                  max={500}
+                  step={10}
+                  unit="kg"
+                  onChange={(target) => patch({ target })}
+                />
+                <div className="control-divider" />
+                <Range
+                  label="Concentração de gelo"
+                  value={s.concentration}
+                  min={0.5}
+                  max={20}
+                  step={0.5}
+                  unit="%"
+                  onChange={(concentration) => patch({ concentration })}
+                  hint="Fração de gelo na massa alimentada."
+                />
+                <Range
+                  label="Cobertura sem gelo"
+                  value={s.depth}
+                  min={0}
+                  max={200}
+                  step={5}
+                  unit="cm"
+                  onChange={(depth) => patch({ depth })}
+                  hint="Espessura hipotética até a camada de interesse."
+                />
+                <Range
+                  label="Recuperação na captura"
+                  value={s.recovery}
+                  min={10}
+                  max={100}
+                  step={5}
+                  unit="%"
+                  onChange={(recovery) => patch({ recovery })}
+                />
+                <Range
+                  label="Recuperação na separação"
+                  value={s.separation}
+                  min={10}
+                  max={100}
+                  step={5}
+                  unit="%"
+                  onChange={(separation) => patch({ separation })}
+                  hint="Água recuperada nesta etapa. Não é pureza."
+                />
+                <details className="advanced">
+                  <summary>
+                    Geometria e energia <ChevronRight size={14} />
+                  </summary>
+                  <Range
+                    label="Área de escavação"
+                    value={s.area}
+                    min={1}
+                    max={50}
+                    unit="m²"
+                    onChange={(area) => patch({ area })}
+                  />
+                  <Range
+                    label="Energia térmica específica"
+                    value={s.thermal}
+                    min={0.05}
+                    max={1}
+                    step={0.05}
+                    unit="kWh/kg"
+                    onChange={(thermal) => patch({ thermal })}
+                    hint="Coeficiente assumido por kg alimentado."
+                  />
+                  <Range
+                    label="Orçamento parcial"
+                    value={s.budget}
+                    min={100}
+                    max={10000}
+                    step={100}
+                    unit="kWh"
+                    onChange={(budget) => patch({ budget })}
+                  />
+                </details>
+                <button className="button primary full" onClick={save}>
+                  <Save size={16} /> Salvar cenário
+                </button>
+                <span className="local-note">
+                  Armazenado apenas neste navegador.
+                </span>
+              </aside>
+              <div className="experiment">
+                <MaterialView s={s} />
+                <div className="experiment-bottom">
+                  <div>
+                    <span className="eyebrow">A PERGUNTA MUDA O PROJETO</span>
+                    <h3>
+                      {s.concentration <= 3
+                        ? "Quanto material para tão pouco gelo?"
+                        : s.depth >= 80
+                          ? "O gelo compensa a escavação?"
+                          : s.separation < 80
+                            ? "O que se perde na separação?"
+                            : "Encontrar água é só o começo."}
+                    </h3>
+                  </div>
+                  <div className="coextract">
+                    <span>Investigar junto com a água</span>
+                    <label>
+                      <input
+                        type="checkbox"
+                        checked={s.dust}
+                        onChange={(e) => patch({ dust: e.target.checked })}
+                      />{" "}
+                      Poeira fina
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        checked={s.volatiles}
+                        onChange={(e) => patch({ volatiles: e.target.checked })}
+                      />{" "}
+                      Outros voláteis
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <aside className="results">
+                <div className="panel-heading">
+                  <span>
+                    <Scale size={18} /> Leitura do cenário
+                  </span>
+                </div>
+                <div className="target-result">
+                  <span>Para obter, antes de eventual eletrólise</span>
+                  <strong>
+                    {fmt(s.target)} <small>kg</small>
+                  </strong>
+                  <span>de água após separação</span>
+                  <i>Qualidade ainda precisa ser verificada</i>
+                </div>
+                <div className="metric">
+                  <span>
+                    <Layers size={16} /> Material com gelo a processar
+                  </span>
+                  <strong data-testid="feed">
+                    {fmt(r.feed)} <small>kg</small>
+                  </strong>
+                </div>
+                <div className="metric">
+                  <span>
+                    <Mountain size={16} /> Cobertura a remover
+                  </span>
+                  <strong>
+                    {fmt(r.overburden)} <small>kg</small>
+                  </strong>
+                </div>
+                <div className="metric energy">
+                  <span>
+                    <Zap size={16} /> Energia parcial estimada
+                  </span>
+                  <strong data-testid="energy">
+                    {fmt(r.energy)} <small>kWh</small>
+                  </strong>
+                  <span
+                    className={`budget ${r.withinBudget ? "within" : "over"}`}
+                  >
+                    {r.withinBudget
+                      ? "Dentro do orçamento parcial"
+                      : "Acima do orçamento parcial"}{" "}
+                    · {fmt(s.budget)} kWh
+                  </span>
+                  <details className="energy-breakdown">
+                    <summary>Ver energia por etapa</summary>
+                    <dl>
+                      {[
+                        ["Aquecimento", r.heat],
+                        ["Movimentação", r.dig],
+                        ["Separação", r.clean],
+                        ["Eletrólise", r.electrolysis],
+                      ].map(([label, value]) => (
+                        <div key={label}>
+                          <dt>{label}</dt>
+                          <dd>{fmt(Number(value), 2)} kWh</dd>
+                        </div>
+                      ))}
+                    </dl>
+                    <p>
+                      Estimativas parciais. Equipamentos auxiliares e
+                      armazenamento não estão incluídos.
+                    </p>
+                  </details>
+                </div>
+                <div className="qualify">
+                  <ShieldCheck size={18} />
+                  <p>{uses[s.use].qualification}</p>
+                </div>
+              </aside>
+            </div>
+            <section className="process-section">
+              <div className="section-heading">
+                <div>
+                  <span className="eyebrow">02 / ENTENDA O PROCESSO</span>
+                  <h2>A água passa. A pergunta fica.</h2>
+                </div>
+                <span>Clique em cada etapa para investigar</span>
+              </div>
+              <div className="process-steps">
+                {phases.map((p, i) => (
+                  <button
+                    key={p.name}
+                    className={phase === i ? "active" : ""}
+                    aria-pressed={phase === i}
+                    onClick={() => setPhase(i)}
+                  >
+                    <p.icon size={22} />
+                    <span className="phase-number">0{i + 1}</span>
+                    <strong>{p.name}</strong>
+                    <span>{p.caption}</span>
+                    {i < 4 && <ChevronRight className="step-arrow" size={16} />}
+                  </button>
+                ))}
+              </div>
+              <div className="phase-detail">
+                <div>
+                  <span className="eyebrow">{phases[phase].question}</span>
+                  <p>{phases[phase].detail}</p>
+                </div>
+                <a
+                  href={sources.find((x) => x.id === phases[phase].source)!.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Consultar referência <ArrowUpRight size={16} />
+                </a>
+              </div>
+            </section>
+            <section className="analysis-grid">
+              <div className="sensitivity-panel">
+                <div className="section-heading">
+                  <div>
+                    <span className="eyebrow">03 / MUDE UMA VARIÁVEL</span>
+                    <h2>Menos gelo. Mais processamento.</h2>
+                  </div>
+                  <Scale size={22} />
+                </div>
+                <p>
+                  Massa alimentada para a mesma meta de {fmt(s.target)} kg,
+                  mantendo as demais premissas. Selecione uma concentração.
+                </p>
+                <div
+                  className="chart"
+                  role="group"
+                  aria-label="Sensibilidade à concentração de gelo"
+                >
+                  {curve.map((point) => (
+                    <button
+                      key={point.concentration}
+                      className={
+                        point.concentration === s.concentration
+                          ? "selected"
+                          : ""
+                      }
+                      aria-label={`Usar concentração de ${point.concentration}%: ${fmt(point.feed)} kg de material`}
+                      onClick={() =>
+                        patch({ concentration: point.concentration })
+                      }
+                    >
+                      <span className="bar-value">{fmt(point.feed)}</span>
+                      <span className="bar-area">
+                        <i
+                          style={{
+                            height: `${Math.max(5, Math.sqrt(point.feed / curve[0].feed) * 100)}%`,
+                          }}
+                        />
+                      </span>
+                      <span>{fmt(point.concentration, 1)}%</span>
+                    </button>
+                  ))}
+                </div>
+                <div className="chart-caption">
+                  <span>Eixo horizontal: gelo em massa</span>
+                  <span>Altura em escala de raiz quadrada · massa em kg</span>
+                </div>
+              </div>
+              <div className="balance-panel">
+                <span className="eyebrow">NENHUMA ETAPA É INVISÍVEL</span>
+                <h2>Para onde vai a água?</h2>
+                <div className="balance-row">
+                  <span>Contida no material</span>
+                  <strong>{fmt(r.contained, 1)} kg</strong>
+                </div>
+                <div className="balance-row loss">
+                  <span>Não capturada</span>
+                  <strong>− {fmt(r.uncaptured, 1)} kg</strong>
+                </div>
+                <div className="balance-row loss">
+                  <span>Perdida na separação</span>
+                  <strong>− {fmt(r.separationLoss, 1)} kg</strong>
+                </div>
+                <div className="balance-row final">
+                  <span>Após separação</span>
+                  <strong>{fmt(s.target)} kg</strong>
+                </div>
+                {r.electrolysis > 0 && (
+                  <div className="gas-results">
+                    <span>Conversão ideal total por eletrólise</span>
+                    <div>
+                      <strong>{fmt(r.oxygen, 1)} kg O₂</strong>
+                      <strong>{fmt(r.hydrogen, 1)} kg H₂</strong>
+                    </div>
+                    <p>
+                      Água remanescente: 0 kg. Equivalentes químicos
+                      aproximados, sem perdas de conversão ou armazenamento.
+                    </p>
+                  </div>
+                )}
+                <p className="balance-note">
+                  Recuperar água não comprova potabilidade. Pureza,
+                  contaminantes e adequação ao uso exigem análise e validação.
+                </p>
+              </div>
+            </section>
+            <section className="question-panel">
+              <span className="question-icon">
+                <FlaskConical size={28} />
+              </span>
+              <div>
+                <span className="eyebrow">ANTES DE ESCOLHER ONDE MINERAR</span>
+                <h2>O que falta medir?</h2>
+                <ul>
+                  {questions(s).map((q) => (
+                    <li key={q}>{q}</li>
+                  ))}
+                </ul>
+              </div>
+              <button className="button outline" onClick={() => nav("sources")}>
+                Explorar evidências <ArrowUpRight size={16} />
+              </button>
+            </section>
+          </>
+        )}
+        {view === "compare" && (
+          <>
+            <div className="comparison-intro">
+              <Info size={20} />
+              <p>
+                Os três perfis usam sua meta, finalidade, área, coeficiente
+                térmico e orçamento atuais. O cenário salvo preserva as
+                condições originais, que podem ser diferentes.
+              </p>
+              <button className="text-button" onClick={() => nav("lab")}>
+                Ajustar premissas <ArrowRight size={16} />
+              </button>
+            </div>
+            <div className="comparison-grid">
+              {comparisons.map((c, i) => {
+                const cr = calculate(c);
+                return (
+                  <article
+                    className={i === 0 ? "comparison current" : "comparison"}
+                    key={i}
+                  >
+                    <span className="eyebrow">
+                      {i === 0
+                        ? "CENÁRIO ATUAL"
+                        : i === 4
+                          ? "SALVO NESTE NAVEGADOR"
+                          : "PERFIL HIPOTÉTICO"}
+                    </span>
+                    <h2>{i === 0 ? "Sua investigação" : c.name}</h2>
+                    <p>
+                      {uses[c.use].short} · meta {fmt(c.target)} kg
+                    </p>
+                    <div className="comparison-main">
+                      <strong>{fmt(cr.feed)}</strong>
+                      <span>kg de material com gelo</span>
+                    </div>
+                    <dl>
+                      <div>
+                        <dt>Concentração</dt>
+                        <dd>{fmt(c.concentration, 1)}%</dd>
+                      </div>
+                      <div>
+                        <dt>Cobertura / área</dt>
+                        <dd>
+                          {c.depth} cm / {c.area} m²
+                        </dd>
+                      </div>
+                      <div>
+                        <dt>Captura / separação</dt>
+                        <dd>
+                          {c.recovery}% / {c.separation}%
+                        </dd>
+                      </div>
+                      <div>
+                        <dt>Massa total movimentada</dt>
+                        <dd>{fmt(cr.moved)} kg</dd>
+                      </div>
+                      <div>
+                        <dt>Energia parcial</dt>
+                        <dd>{fmt(cr.energy)} kWh</dd>
+                      </div>
+                      <div>
+                        <dt>Por kg de água separada</dt>
+                        <dd>{fmt(cr.perKg, 2)} kWh/kg</dd>
+                      </div>
+                    </dl>
+                    <span
+                      className={`budget ${cr.withinBudget ? "within" : "over"}`}
+                    >
+                      {cr.withinBudget
+                        ? "Atende ao orçamento parcial"
+                        : "Excede o orçamento parcial"}
+                    </span>
+                    <button
+                      className="button outline"
+                      onClick={() => {
+                        setS({ ...c });
+                        nav("lab");
+                      }}
+                    >
+                      Investigar este cenário <ArrowRight size={15} />
+                    </button>
+                  </article>
+                );
+              })}
+            </div>
+            <div className="comparison-intro">
+              <ShieldCheck size={20} />
+              <p>
+                O menor consumo neste cálculo não basta para escolher uma
+                missão. A energia é parcial e os perfis não foram calibrados com
+                dados de jazidas. Contaminantes, acesso, equipamentos e
+                condições térmicas podem mudar a decisão.
+              </p>
+            </div>
+          </>
+        )}
+        {view === "sources" && (
+          <>
+            <div className="source-toolbar">
+              <label>
+                <Search size={18} />
+                <input
+                  aria-label="Buscar fontes"
+                  placeholder="Busque por gelo, NASA, processamento..."
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                />
+              </label>
+              <span>{sources.length} fontes de referência</span>
+            </div>
+            <div className="source-grid">
+              {sources
+                .filter((x) =>
+                  (x.title + x.agency + x.description)
+                    .toLocaleLowerCase()
+                    .includes(query.toLocaleLowerCase()),
+                )
+                .map((x, i) => (
+                  <a
+                    className="source-card"
+                    href={x.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    key={x.id}
+                  >
+                    <div>
+                      <span>
+                        {String(i + 1).padStart(2, "0")} / {x.kind}
+                      </span>
+                      <ArrowUpRight size={19} />
+                    </div>
+                    <span className="source-agency">{x.agency}</span>
+                    <h2>{x.title}</h2>
+                    <p>{x.description}</p>
+                    <span className="source-cta">
+                      Abrir fonte primária <ArrowRight size={15} />
+                    </span>
+                  </a>
+                ))}
+            </div>
+            {!sources.some((x) =>
+              (x.title + x.agency + x.description)
+                .toLocaleLowerCase()
+                .includes(query.toLocaleLowerCase()),
+            ) && (
+              <div className="empty">
+                <BookOpen size={34} />
+                <h2>Nenhuma referência encontrada</h2>
+                <button className="button outline" onClick={() => setQuery("")}>
+                  Limpar busca
+                </button>
+              </div>
+            )}
+            <div className="comparison-intro">
+              <Info size={19} />
+              <p>
+                Fontes reais para orientar perguntas. As concentrações,
+                eficiências e coeficientes do simulador são hipóteses, sem
+                extração automática desses acervos.
+              </p>
+            </div>
+          </>
+        )}
+        {view === "method" && (
+          <>
+            <div className="method-grid">
+              <article>
+                <span className="eyebrow">BALANÇO DE MASSA</span>
+                <h2>Uma conta que você consegue verificar.</h2>
+                <code>
+                  Alimentação = meta ÷ (fração de gelo × recuperação na captura
+                  × recuperação na separação)
+                </code>
+                <p>
+                  Exemplo: para recuperar 100 kg, com 5% de gelo, captura de 70%
+                  e separação com recuperação de 90%, o modelo exige
+                  aproximadamente 3.175 kg de material com gelo.
+                </p>
+                <p>
+                  A cobertura é calculada separadamente: área × espessura ×
+                  densidade assumida de 1.500 kg/m³. A camada superior não
+                  contém gelo neste modelo.
+                </p>
+              </article>
+              <article>
+                <span className="eyebrow">ENERGIA PARCIAL</span>
+                <h2>O que entra na estimativa.</h2>
+                <ul>
+                  <li>
+                    Aquecimento: coeficiente ajustável × massa alimentada.
+                  </li>
+                  <li>Movimentação: 0,005 kWh/kg de material total.</li>
+                  <li>Separação: 0,02 kWh/kg de água capturada.</li>
+                  <li>
+                    Eletrólise: 5,5 kWh/kg de água, somente nos objetivos que
+                    geram gases.
+                  </li>
+                </ul>
+                <p>
+                  Todos os coeficientes são hipóteses didáticas, sem calibração.
+                  O modelo omite sobrevivência térmica, reagentes, transporte
+                  espacial, comunicações, compressão, liquefação e
+                  armazenamento.
+                </p>
+              </article>
+              <article>
+                <span className="eyebrow">COMPOSIÇÃO E QUALIDADE</span>
+                <h2>Recuperação não é pureza.</h2>
+                <p>
+                  As porcentagens dos controles representam frações de água que
+                  atravessam as etapas. Não representam remoção de
+                  contaminantes, qualidade da água ou desempenho real de um
+                  sistema.
+                </p>
+                <p>
+                  Marcar poeira e outros voláteis acrescenta perguntas de
+                  investigação. Sem dados de composição, o modelo não atribui
+                  arbitrariamente energia ou tratamento a cada contaminante.
+                </p>
+              </article>
+              <article>
+                <span className="eyebrow">FRONTEIRA DO MVP</span>
+                <h2>Uma investigação antes de uma conclusão.</h2>
+                <p>
+                  Não há reserva mineral estimada, seleção validada de local,
+                  análise de potabilidade ou janela operacional. Os três perfis
+                  representam hipóteses de materiais, sem associação a crateras
+                  reais.
+                </p>
+                <p>
+                  Próxima etapa: escolher uma área no Moon Trek, registrar
+                  produtos e incertezas, caracterizar amostras e substituir
+                  coeficientes por ensaios rastreáveis.
+                </p>
+                <a
+                  href="https://github.com/SouBeatrizKaroline/aqua-lunar/tree/main/docs"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Consultar documentação <ArrowUpRight size={15} />
+                </a>
+              </article>
+            </div>
+          </>
+        )}
+        <footer>
+          <a
+            className="brand footer-brand"
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              nav("lab");
+            }}
+          >
+            <Droplets size={22} />
+            <strong>
+              AQUA<span>LUNAR</span>
+            </strong>
+          </a>
+          <span>Entender o material. Escolher o processo.</span>
+          <a
+            href="https://github.com/SouBeatrizKaroline/aqua-lunar"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Projeto aberto <ArrowUpRight size={14} />
+          </a>
+          <small>© 2026</small>
+        </footer>
+      </main>
+      <div
+        role="status"
+        aria-live="polite"
+        className={`toast ${notice ? "show" : ""}`}
+      >
+        <Check size={18} />
+        {notice}
+      </div>
+      <dialog
+        ref={dialog}
+        className="guide"
+        onClick={(e) => {
+          if (e.target === e.currentTarget) dialog.current?.close();
+        }}
+      >
+        <button
+          className="icon-btn close-guide"
+          aria-label="Fechar guia"
+          onClick={() => dialog.current?.close()}
+        >
+          <X size={20} />
+        </button>
+        <Droplets size={34} />
+        <span className="eyebrow">SUA PRÓXIMA INVESTIGAÇÃO</span>
+        <h2>
+          Explore o que muda
+          <br />
+          entre o gelo e o uso.
+        </h2>
+        <ol>
+          <li>
+            <strong>Defina uma finalidade.</strong> Pesquisa, suporte à vida ou
+            gases por eletrólise.
+          </li>
+          <li>
+            <strong>Mude o material.</strong> Concentração, cobertura e
+            recuperação alteram o balanço.
+          </li>
+          <li>
+            <strong>Compare e questione.</strong> Examine perdas, energia e
+            informações que faltam.
+          </li>
+        </ol>
+        <p>
+          Todos os números de entrada são hipóteses. A água calculada não tem
+          qualidade certificada.
+        </p>
+        <button
+          className="button primary"
+          onClick={() => dialog.current?.close()}
+        >
+          Explorar o laboratório <ArrowRight size={16} />
+        </button>
+      </dialog>
+    </>
+  );
 }

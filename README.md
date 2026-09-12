@@ -6,6 +6,8 @@ Um laboratório interativo para entender como o material encontrado muda uma mis
 
 [Abrir laboratório](https://soubeatrizkaroline.github.io/aqua-lunar/) · [Método](./docs/metodologia.md) · [Fontes](./docs/fontes.md) · [Contribuir](./CONTRIBUTING.md)
 
+**MVP funcional v0.1.0.** [Validação e limites](./docs/validacao.md) · [Aplicação ao desafio](./docs/desafio.md)
+
 ![Qualidade](https://github.com/SouBeatrizKaroline/aqua-lunar/actions/workflows/ci.yml/badge.svg)
 
 ![Interface do AQUA Lunar com corte conceitual e controles de material](./docs/preview.png)
@@ -25,7 +27,7 @@ O AQUA Lunar permite explorar essas relações sem apresentar um cenário hipot�
 | Premissas ajustáveis | Alterar concentração, cobertura, recuperação, meta, área e energia. |
 | Finalidades diferentes | Investigar pesquisa, água para suporte à vida, oxigênio ou hidrogênio e oxigênio. |
 | Balanço de massa | Acompanhar água contida, não capturada, perdida na separação e recuperada. |
-| Energia parcial | Comparar a estimativa do modelo com um orçamento declarado. |
+| Energia parcial | Comparar com um orçamento e abrir o consumo estimado de cada etapa. |
 | Sensibilidade | Mudar a concentração e observar a alimentação necessária para a mesma meta. |
 | Etapas de processo | Investigar caracterização, acesso, captura, separação e destinação. |
 | Comparação | Comparar o cenário atual, três perfis e um cenário salvo. |
@@ -51,7 +53,7 @@ Requisitos: Node.js 22.12 ou superior e npm.
 ```bash
 git clone https://github.com/SouBeatrizKaroline/aqua-lunar.git
 cd aqua-lunar
-npm install
+npm ci
 npm run dev
 ```
 
@@ -115,7 +117,35 @@ docs/
   fontes.md       Proveniência e interpretação
   arquitetura.md  Estrutura e evolução
   desafio.md      Uso no Space Mining Challenge
+  validacao.md    Testes realizados e limites da verificação
 ```
+
+## Qualidade e privacidade
+
+O modelo possui **17 testes automatizados**. Os fluxos principais foram exercitados em Chromium, incluindo exportação, recuperação do cenário salvo, comparação e navegação em telas de 390 e 320 pixels. Consulte o [registro de validação](./docs/validacao.md).
+
+O botão de salvar mantém um único cenário local e substitui o anterior. Alterações posteriores só são persistidas ao salvar novamente. Restaurar as premissas iniciais mantém o cenário salvo disponível na comparação.
+
+Não há cadastro, telemetria ou envio de cenários a um servidor. A exportação é produzida no próprio navegador. Links externos abrem as instituições responsáveis pelas referências.
+
+## Publicar uma cópia
+
+1. Faça um fork e ative o GitHub Actions.
+2. Em **Settings → Pages**, selecione **GitHub Actions** como origem.
+3. Execute o workflow **Publicar demonstração** ou envie uma alteração para `main`.
+4. Atualize os links deste README e de `src/App.tsx` para sua conta.
+
+O workflow valida e compila antes da publicação. Uma falha nos testes impede a atualização do site.
+
+## Dúvidas frequentes
+
+**Os valores vêm diretamente da NASA?** As fontes orientam o contexto científico. Os números ajustáveis são hipóteses didáticas, sem integração automática com os acervos.
+
+**O resultado permite escolher onde minerar?** Ele ajuda a comparar premissas de processamento. Escolher uma região exige evidências espaciais, condições operacionais e caracterização do material.
+
+**90% de recuperação significa água 90% pura?** Não. Significa que 90% da massa de água que entra nessa etapa é recuperada. O modelo não calcula pureza.
+
+**Por que há hidrogênio quando escolho produzir oxigênio?** A eletrólise produz ambos. O modelo apresenta os dois equivalentes químicos para manter o balanço de massa.
 
 ## Próximas etapas
 
