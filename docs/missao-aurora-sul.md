@@ -61,6 +61,14 @@ Tudo que a operação usa precisa descer da Terra antes do início da missão. P
 
 O projeto não atribui massas sem uma fonte de engenharia. O orçamento de massa é critério de decisão: se a rota para uma região exigir mais energia, escavação ou redundância do que a carga lançada suporta, a equipe deve rever o local ou a cadeia de extração.
 
+## Energia e condições ambientais
+
+A Aurora Sul investiga uma área com alta iluminação na borda de Shackleton para instalar painéis solares e atender as cargas de prospecção, mobilidade, processamento e comunicação. A proximidade com regiões frias de interesse para água torna essa configuração uma hipótese útil, mas a equipe precisa testar no Moon Trek a iluminação, elevação, declividade e linha de visada da área específica.
+
+O sistema não pode pressupor que a energia solar estará disponível o tempo todo. Sombra, geometria local e variação da iluminação exigem armazenamento, distribuição de energia e uma ordem de prioridade para as cargas. O payload também deve considerar vácuo, poeira abrasiva, temperaturas extremas e radiação, pois esses fatores podem degradar painéis, sensores, mobilidade, eletrônica e mecanismos de extração durante os 24 meses sem reabastecimento.
+
+Medidas propostas para análise de engenharia: componentes tolerantes à radiação, blindagem onde necessária, redundância de sensores e comunicações, isolamento e controle térmico, vedação contra poeira, limpeza de painéis e peças de reposição. Esta lista identifica necessidades de payload; ela não comprova que a massa, a potência ou a vida útil sejam suficientes.
+
 ## Utilização
 
 A primeira prioridade é água de processo e suporte à operação, reduzindo a dependência de reabastecimento enviado da Terra. Depois de purificada, uma fração pode servir ao sistema de suporte à vida e ajudar a prolongar expedições. Outra fração pode alimentar eletrólise para produzir oxigênio e hidrogênio, desde que a massa, energia, pureza e armazenamento justifiquem essa rota.

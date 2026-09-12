@@ -83,6 +83,22 @@ O desafio limita a massa lançada e não prevê reabastecimento durante os prime
 
 O repositório não inventa massas para esses itens. A escolha final deve incluir um orçamento de massa com valores rastreáveis, pois um recurso promissor pode deixar de ser viável se exigir energia, escavação ou redundância demais para a massa disponível.
 
+### Energia, iluminação e ambiente lunar
+
+A estratégia da Aurora Sul parte de uma área da borda de Shackleton com alta iluminação para instalar painéis solares. Essa escolha busca reduzir a massa de combustível e apoiar equipamentos de prospecção, mobilidade, processamento e comunicações. A equipe deve confirmar a disponibilidade de luz no Moon Trek para a área e para o período de operação escolhido.
+
+Luz solar não equivale a energia contínua. O payload ainda precisa de armazenamento, distribuição, cabos, proteção térmica e uma margem para períodos de sombra. A operação também enfrenta vácuo, poeira abrasiva, temperaturas extremas, radiação e possíveis falhas de componentes. Esses fatores podem reduzir a geração solar, degradar equipamentos e aumentar a massa necessária para redundância e manutenção.
+
+| Condição | Impacto possível | Resposta que a missão precisa justificar |
+| --- | --- | --- |
+| Iluminação variável | Menos energia disponível em períodos de sombra | Painéis, baterias, cabos e prioridade de cargas. |
+| Temperaturas extremas | Perda de desempenho, congelamento ou superaquecimento de componentes | Isolamento, aquecimento, radiadores e controle térmico. |
+| Radiação | Degradação de eletrônica, sensores e painéis ao longo da missão | Componentes tolerantes, blindagem e redundância. |
+| Poeira lunar | Desgaste mecânico e redução de geração nos painéis | Vedação, limpeza, posicionamento e peças de reposição. |
+| Terreno e comunicação | Acesso difícil e perda de linha de visada | Rota de mobilidade, antenas e verificação no relevo. |
+
+Os itens acima são riscos de engenharia a investigar. O laboratório não calcula vida útil de painéis, dose de radiação ou eficiência real de equipamentos.
+
 ### Ferramentas de análise espacial
 
 | Ferramenta | Uso na decisão |
