@@ -12,6 +12,8 @@ A decisão é provisória. Ela prioriza água porque o uso local reduz a depend�
 - Referência geográfica: o centro de Shackleton fica próximo de 89,66° S e 130,2° E.
 - Delimitação operacional: a equipe deve desenhar no Moon Trek uma área de pouso e uma área de prospecção antes de apresentar a proposta. Não há coordenada de lavra definida neste documento.
 
+O [orçamento de referência](./orcamento-referencia-aurora-sul.md) adota 2.700 kg de payload de planejamento e uma arquitetura solar de 8 kW nominais. São hipóteses transparentes para comparar massa, autonomia e risco, não números fornecidos pelo desafio ou confirmados para Shackleton.
+
 ## Registros de evidência
 
 ### 1. Condições térmicas e estabilidade potencial
