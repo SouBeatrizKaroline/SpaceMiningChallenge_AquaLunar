@@ -115,6 +115,8 @@ A equipe registrou uma [consulta reproduzível do QuickMap](https://quickmap.lro
 
 Também foi salvo o [registro da visualização Diviner Global Max Temp](https://bit.ly/4h2Juvw). Ele documenta a camada térmica consultada no QuickMap; deve ser lido junto com o nome da camada, a escala e o ponto de referência, e não como medição direta de gelo.
 
+Os registros complementares do QuickMap estão em [consulta 1](https://bit.ly/3Vr5I3e) e [consulta 2](https://bit.ly/3V6I0sX). A [captura das camadas usadas](docs/evidencias/quickmap-diviner-psr-lola.png) mostra a configuração com Diviner, PSRs e LOLA.
+
 ## O que funciona
 
 | Experiência | O que permite fazer |

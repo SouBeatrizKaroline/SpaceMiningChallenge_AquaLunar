@@ -71,6 +71,8 @@ A equipe registrou a consulta de terreno no QuickMap em projeção estereográfi
 
 A camada térmica foi registrada separadamente: [Diviner Global Max Temp no QuickMap](https://bit.ly/4h2Juvw). A captura serve para reproduzir a configuração de visualização da temperatura máxima; a interpretação permanece limitada ao que a camada e sua legenda informam.
 
+Registros adicionais enviados pela equipe: [consulta 1](https://bit.ly/3Vr5I3e) e [consulta 2](https://bit.ly/3V6I0sX). A [captura de configuração das camadas](evidencias/quickmap-diviner-psr-lola.png) identifica Global Max Temp, PSRs e LOLA_SPOLE 5M [Slope] no painel do QuickMap.
+
 Esse link preserva a projeção, a extensão do mapa, as camadas e o intervalo de tempo usados na consulta. Ele permite que outra pessoa reproduza a visualização. A equipe ainda deve identificar no material entregue que a referência geográfica da cratera Shackleton é 89,66° S e 130,20° E, e explicar o limite da camada de declividade.
 
 ## Extração proposta
