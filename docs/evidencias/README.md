@@ -2,6 +2,8 @@
 
 Estas capturas preservam o caminho de consulta no Moon Trek e no LROC QuickMap. Elas não substituem os produtos científicos nem autorizam conclusões além da camada visível.
 
+[Como interpretar as capturas](interpretacao-capturas.md) explica o que cada imagem mostra, o que viabiliza e os limites de leitura.
+
 ## Configuração das evidências
 
 - [Camadas Diviner, PSR e LOLA](quickmap-diviner-psr-lola.png): painel que identifica as três camadas utilizadas.
