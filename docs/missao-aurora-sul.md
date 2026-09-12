@@ -65,6 +65,8 @@ A equipe deve completar este quadro depois de analisar a área no navegador. Ele
 
 Links de trabalho: [Moon Trek](https://trek.nasa.gov/moon/), [LROC QuickMap](https://quickmap.lroc.im-ldi.com/), [Lunar Orbital Data Explorer](https://ode.rsl.wustl.edu/moon/).
 
+O [caderno colaborativo no Canva](https://canva.link/e5xxa0ukj24cs3o) reúne pesquisas, anotações e percepções da equipe. O inventário dos demais links está em [links compartilhados](links-compartilhados.md).
+
 ### Consulta QuickMap registrada
 
 A equipe registrou a consulta de terreno no QuickMap em projeção estereográfica do polo sul, com mosaico LROC e camada LOLA ativa: [abrir a consulta salva](https://quickmap.lroc.im-ldi.com/?prjExtent=-114847.40672%2C-65694.9429387%2C130596.834084%2C52385.6449216&earthShadowEnabled=true&proj=27&stack=3314%2C3351&defs=N4IgzGCMAsIFygPYAcCGBjAlgFwJ70gF8AacMAVkniTSzwMMKA&time=2026-10-18T05%3A49%3A36.085Z&startTime=2026-09-21T14%3A31%3A06.003Z&stopTime=2026-10-21T03%3A13%3A06.003Z).

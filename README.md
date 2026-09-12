@@ -117,6 +117,10 @@ Também foi salvo o [registro da visualização Diviner Global Max Temp](https:/
 
 Os registros complementares do QuickMap estão em [consulta 1](https://bit.ly/3Vr5I3e) e [consulta 2](https://bit.ly/3V6I0sX). A [captura das camadas usadas](docs/evidencias/quickmap-diviner-psr-lola.png) mostra a configuração com Diviner, PSRs e LOLA.
 
+A [galeria de evidências complementares](docs/evidencias/README.md) preserva todas as capturas feitas durante a consulta, com indicação do que cada camada demonstra e de seus limites.
+
+As [pesquisas, anotações e percepções da equipe](https://canva.link/e5xxa0ukj24cs3o) estão reunidas no Canva. A [lista completa de links compartilhados](docs/links-compartilhados.md) separa portais científicos de materiais de contexto.
+
 ## O que funciona
 
 | Experiência | O que permite fazer |
