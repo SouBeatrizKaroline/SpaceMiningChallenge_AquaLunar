@@ -111,6 +111,8 @@ Os itens acima são riscos de engenharia a investigar. O laboratório não calcu
 
 Comece pelo Moon Trek. ODE e dados brutos só agregam valor quando a equipe consegue explicar o produto, sua resolução, sua versão e seu limite.
 
+A equipe registrou uma [consulta reproduzível do QuickMap](https://quickmap.lroc.im-ldi.com/?prjExtent=-114847.40672%2C-65694.9429387%2C130596.834084%2C52385.6449216&earthShadowEnabled=true&proj=27&stack=3314%2C3351&defs=N4IgzGCMAsIFygPYAcCGBjAlgFwJ70gF8AacMAVkniTSzwMMKA&time=2026-10-18T05%3A49%3A36.085Z&startTime=2026-09-21T14%3A31%3A06.003Z&stopTime=2026-10-21T03%3A13%3A06.003Z) com a projeção do polo sul e camadas de terreno. O link permite reabrir a mesma configuração para revisão.
+
 ## O que funciona
 
 | Experiência | O que permite fazer |
