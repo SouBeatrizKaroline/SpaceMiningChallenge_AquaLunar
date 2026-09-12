@@ -119,7 +119,7 @@ Os registros complementares do QuickMap estão em [consulta 1](https://bit.ly/3V
 
 A [galeria de evidências complementares](docs/evidencias/README.md) preserva todas as capturas feitas durante a consulta, com indicação do que cada camada demonstra e de seus limites.
 
-As [pesquisas, anotações e percepções da equipe](https://canva.link/e5xxa0ukj24cs3o) estão reunidas no Canva. A [lista completa de links compartilhados](docs/links-compartilhados.md) separa portais científicos de materiais de contexto.
+As [pesquisas, anotações e percepções da equipe](https://canva.link/e5xxa0ukj24cs3o) e o [espaço complementar de pesquisa](https://canva.link/rt0dr4u0cxwmnmn) estão reunidos no Canva. A [lista completa de links compartilhados](docs/links-compartilhados.md) separa portais científicos de materiais de contexto.
 
 ## O que funciona
 

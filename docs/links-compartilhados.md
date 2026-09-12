@@ -5,6 +5,7 @@ Este inventário preserva os links enviados durante a pesquisa. Fontes primária
 ## Caderno colaborativo
 
 - [Pesquisas, anotações e percepções da equipe no Canva](https://canva.link/e5xxa0ukj24cs3o)
+- [Espaço complementar de pesquisa da equipe no Canva](https://canva.link/rt0dr4u0cxwmnmn)
 
 ## Briefing e organização do challenge
 
