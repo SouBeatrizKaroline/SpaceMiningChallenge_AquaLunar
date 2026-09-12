@@ -24,6 +24,8 @@ import {
   Wind,
   Mountain,
   Target,
+  FileUp,
+  FileDown,
 } from "lucide-react";
 import {
   calculate,
@@ -38,6 +40,9 @@ import {
   type Scenario,
   type Use,
 } from "./model";
+import LunarExplorer from "./LunarExplorer";
+import MissionPlanner from "./MissionPlanner";
+import { parseScenarioFile, serializeScenario } from "./scenarioFiles";
 
 const fmt = (v: number, digits = 0) =>
   v.toLocaleString("pt-BR", { maximumFractionDigits: digits });
@@ -50,7 +55,7 @@ function load(): Scenario | null {
     return null;
   }
 }
-type View = "lab" | "compare" | "sources" | "method";
+type View = "lab" | "data" | "mission" | "compare" | "sources" | "method";
 const phases = [
   {
     name: "Caracterizar",
@@ -358,6 +363,7 @@ export default function App() {
   const [notice, setNotice] = useState("");
   const [menu, setMenu] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);
+  const scenarioFile = useRef<HTMLInputElement>(null);
   const r = useMemo(() => calculate(s), [s]);
   const curve = useMemo(() => sensitivity(s), [s]);
   const patch = (x: Partial<Scenario>) =>
@@ -399,8 +405,33 @@ export default function App() {
     setTimeout(() => URL.revokeObjectURL(url), 1000);
     setNotice("Relatório exportado com cálculos, premissas e fontes.");
   }
+  function exportScenario() {
+    const url = URL.createObjectURL(
+      new Blob([serializeScenario(s)], { type: "application/json" }),
+    );
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "aqua-lunar-cenario.json";
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    setNotice("Cenário exportado em JSON para compartilhar ou importar depois.");
+  }
+  async function importScenario(file?: File) {
+    if (!file) return;
+    try {
+      const imported = parseScenarioFile(await file.text());
+      setS(imported.scenario);
+      setNotice("Cenário importado. Revise as premissas antes de usar.");
+    } catch (error) {
+      setNotice(error instanceof Error ? error.message : "Não foi possível importar o cenário.");
+    } finally {
+      if (scenarioFile.current) scenarioFile.current.value = "";
+    }
+  }
   const navs: [View, string][] = [
     ["lab", "Laboratório"],
+    ["data", "Dados lunares"],
+    ["mission", "Missão"],
     ["compare", "Comparar cenários"],
     ["sources", "Evidências"],
     ["method", "O método"],
@@ -487,6 +518,18 @@ export default function App() {
                   <br />
                   <em>Outra missão.</em>
                 </>
+              ) : view === "data" ? (
+                <>
+                  Evidência antes
+                  <br />
+                  <em>da escolha.</em>
+                </>
+              ) : view === "mission" ? (
+                <>
+                  Da hipótese
+                  <br />
+                  <em>à missão.</em>
+                </>
               ) : view === "compare" ? (
                 <>
                   A mesma meta.
@@ -510,6 +553,10 @@ export default function App() {
             <p>
               {view === "lab"
                 ? "O que vem junto com o gelo muda a forma de extrair, separar e utilizar a água. Explore essas diferenças."
+                : view === "data"
+                  ? "Consulte metadados de produtos lunares no acervo público e registre o que eles permitem concluir."
+                  : view === "mission"
+                    ? "Transforme evidências, premissas e limites em um rascunho revisável para a entrega do desafio."
                 : view === "compare"
                   ? "Compare materiais distintos sem perder de vista a quantidade de água que você quer obter."
                   : view === "sources"
@@ -545,6 +592,13 @@ export default function App() {
                   <ArrowDownToLine size={16} /> Exportar relatório
                 </button>
               </div>
+            </div>
+            <div className="data-shortcut">
+              <FileUp size={20} />
+              <p>Guarde ou recupere as premissas do cenário. A importação aceita apenas arquivos JSON exportados pelo AQUA Lunar.</p>
+              <input ref={scenarioFile} type="file" accept="application/json,.json" hidden onChange={(e) => importScenario(e.target.files?.[0])}/>
+              <button className="button outline" onClick={() => scenarioFile.current?.click()}><FileUp size={15}/> Importar cenário</button>
+              <button className="button outline" onClick={exportScenario}><FileDown size={15}/> Exportar cenário</button>
             </div>
             <div className="preset-row">
               {presets.map((p, i) => (
@@ -943,6 +997,8 @@ export default function App() {
             </section>
           </>
         )}
+        {view === "data" && <LunarExplorer />}
+        {view === "mission" && <MissionPlanner scenario={s} />}
         {view === "compare" && (
           <>
             <div className="comparison-intro">

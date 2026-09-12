@@ -72,6 +72,24 @@ O núcleo do projeto está alinhado ao desafio ao explicitar escolhas, perdas, i
 
 **Todos os parâmetros numéricos de entrada são hipóteses.** Não foram extraídos automaticamente de rasters lunares nem calibrados com equipamentos. A interface é um laboratório de cenários, sem certificação de potabilidade, previsão operacional ou reserva mineral estimada.
 
+## Como utilizar para construir a missão
+
+1. Abra **Laboratório** e escolha a finalidade. Ajuste somente premissas que a equipe consegue explicar. Salve e exporte o cenário quando quiser comparar uma versão.
+2. Em **Dados lunares**, consulte uma camada no catálogo ODE. Abra o produto original, leia o rótulo e guarde apenas os registros que ajudam a responder uma pergunta da missão. O catálogo lista metadados, não mede gelo automaticamente.
+3. Em **Missão**, dê um nome à missão e informe a região. Registre ao menos três evidências, cada uma com instrumento ou camada, produto, interpretação, limite e link primário.
+4. Descreva a operação de acesso, captura e separação. O painel incorpora as premissas atuais do laboratório, mas elas continuam sendo hipóteses até serem sustentadas por dados e ensaios.
+5. Explique a utilização do produto e preencha o registro de verificação: fontes abertas, ferramentas usadas, hipóteses mantidas e informações descartadas.
+6. Exporte o rascunho de missão em Markdown. Use-o como base para organizar os slides, revisando cada afirmação contra a fonte original.
+
+### Antes de entregar
+
+- A decisão tem recurso, região e finalidade em uma frase.
+- Há pelo menos três evidências complementares, com limites explícitos.
+- A extração corresponde ao terreno e ao material descritos.
+- A utilização não trata água separada como água certificada para consumo ou propelente pronto.
+- O processo de decisão identifica as fontes verificadas e o uso de ferramentas.
+- O documento final respeita o limite de 14 slides e o pitch de 5 minutos indicado no briefing.
+
 ## Experimente em três minutos
 
 1. Mantenha a meta em **100 kg** e selecione **gelo disperso**.
@@ -80,6 +98,8 @@ O núcleo do projeto está alinhado ao desafio ao explicitar escolhas, perdas, i
 4. Reduza a recuperação na separação e observe o balanço de água.
 5. Troque a finalidade para produção de gases. A energia de eletrólise entra no modelo e a água é convertida em equivalentes ideais de H₂ e O₂.
 6. Abra a comparação e exporte o raciocínio.
+
+Para um fluxo completo de entrega, comece pelos dados, avance para a missão e só então transforme o resultado em apresentação.
 
 ## Executar localmente
 
