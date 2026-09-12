@@ -466,7 +466,7 @@ export default function App() {
             <i /> LAB v0.1
           </span>
           <a
-            href="https://github.com/SouBeatrizKaroline/aqua-lunar"
+          href="https://github.com/SouBeatrizKaroline/SpaceMiningChallenge_AquaLunar"
             target="_blank"
             rel="noreferrer"
           >
@@ -1179,7 +1179,7 @@ export default function App() {
                   coeficientes por ensaios rastreáveis.
                 </p>
                 <a
-                  href="https://github.com/SouBeatrizKaroline/aqua-lunar/tree/main/docs"
+                  href="https://github.com/SouBeatrizKaroline/SpaceMiningChallenge_AquaLunar/tree/main/docs"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -1205,7 +1205,7 @@ export default function App() {
           </a>
           <span>Entender o material. Escolher o processo.</span>
           <a
-            href="https://github.com/SouBeatrizKaroline/aqua-lunar"
+            href="https://github.com/SouBeatrizKaroline/SpaceMiningChallenge_AquaLunar"
             target="_blank"
             rel="noreferrer"
           >

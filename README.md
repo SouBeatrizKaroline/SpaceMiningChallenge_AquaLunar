@@ -4,11 +4,11 @@
 
 Um laboratório interativo para entender como o material encontrado muda uma missão de extração de água lunar. Concentração de gelo, cobertura, recuperação e finalidade aparecem em um mesmo cenário, com balanço de massa, energia parcial e perguntas para a próxima investigação.
 
-[Abrir laboratório](https://soubeatrizkaroline.github.io/aqua-lunar/) · [Método](./docs/metodologia.md) · [Fontes](./docs/fontes.md) · [Contribuir](./CONTRIBUTING.md)
+[Abrir laboratório](https://soubeatrizkaroline.github.io/SpaceMiningChallenge_AquaLunar/) · [Método](./docs/metodologia.md) · [Fontes](./docs/fontes.md) · [Contribuir](./CONTRIBUTING.md)
 
-**MVP funcional v0.1.0.** [Validação e limites](./docs/validacao.md) · [Aplicação ao desafio](./docs/desafio.md)
+**MVP funcional v0.1.0.** [Aplicação ao desafio](./docs/desafio.md) · [Integrações e dados externos](./docs/integracoes.md) · [Validação e limites](./docs/validacao.md)
 
-![Qualidade](https://github.com/SouBeatrizKaroline/aqua-lunar/actions/workflows/ci.yml/badge.svg)
+![Qualidade](https://github.com/SouBeatrizKaroline/SpaceMiningChallenge_AquaLunar/actions/workflows/ci.yml/badge.svg)
 
 ![Interface do AQUA Lunar com corte conceitual e controles de material](./docs/preview.png)
 
@@ -17,6 +17,39 @@ Um laboratório interativo para entender como o material encontrado muda uma mis
 Dois locais podem conter gelo e exigir operações completamente diferentes. Quanto material precisa ser processado? O que deve ser removido antes? Quanto da água é recuperado? Quais espécies vêm junto? O que muda quando o destino é pesquisa, suporte à vida ou produção de gases?
 
 O AQUA Lunar permite explorar essas relações sem apresentar um cenário hipotético como uma jazida medida.
+
+## O que é o AQUA Lunar
+
+O AQUA Lunar é um laboratório de decisão para uma hipótese de mineração de água lunar. Ele organiza uma pergunta que costuma ser simplificada demais: encontrar H₂O não basta para decidir extrair. É preciso avaliar a forma em que o material aparece, o acesso, as perdas de processo, a energia, os materiais coextraídos e a finalidade do produto.
+
+O projeto separa quatro coisas que não devem ser confundidas:
+
+| Elemento | Como o projeto trata |
+| --- | --- |
+| Dados científicos | Links e caminhos para acervos primários, com instrumento, produto e versão. |
+| Evidência | Uma interpretação verificável de um produto, registrada com sua origem e limite. |
+| Premissa de engenharia | Valores ajustáveis para concentração, cobertura, recuperação e energia. |
+| Resultado do modelo | Consequência matemática das premissas, nunca uma medição lunar. |
+
+Essa separação mantém a discussão útil para pesquisa e para o desafio: uma hipótese pode mudar quando uma evidência melhor aparece.
+
+## Alinhamento ao Space Mining Challenge Brasil 2026
+
+O briefing pede que a equipe decida o que vale a pena minerar, em vez de apenas mostrar que um recurso existe. O AQUA Lunar é alinhado como ferramenta de apoio a uma decisão sobre água, desde que a equipe complete a escolha de uma região real com evidências espaciais verificáveis.
+
+| Parte solicitada no desafio | Como o AQUA Lunar contribui | O que a equipe ainda precisa apresentar |
+| --- | --- | --- |
+| Decisão | Ajuda a estruturar a escolha de água como recurso e a finalidade de uso. | Uma frase com nome da missão, recurso e região específica. |
+| Evidência | Reúne fontes primárias e caminhos para Moon Trek, Diviner, LOLA, LEND e ODE. | Pelo menos três evidências ligadas a instrumento ou camada, com interpretação da área escolhida. |
+| Extração | Modela alimentação, cobertura, perdas, energia parcial e perguntas de caracterização. | Uma operação coerente com as condições e premissas da região. |
+| Utilização | Permite comparar pesquisa, suporte à vida, oxigênio e gases para propelente. | A cadeia de valor e os requisitos do produto para a finalidade escolhida. |
+| Processo de decisão e uso de IA | Exporta premissas, cálculos, fontes e limites para revisão. | Registrar como ferramentas foram usadas, o que foi conferido na fonte primária e o que foi considerado incerto ou não confiável. |
+
+O briefing também indica Moon Trek como ponto de partida, um documento de até 14 slides e pitch de 5 minutos. O aplicativo não substitui os slides nem o pitch. Ele serve para documentar o raciocínio antes deles.
+
+### Estado atual de alinhamento
+
+O núcleo do projeto está alinhado ao desafio ao explicitar escolhas, perdas, incertezas e critérios de uso. Ele ainda não produz uma decisão final de missão, porque não associa automaticamente os controles a uma região lunar validada. Essa etapa deve ser feita pela equipe com produtos espaciais da área escolhida e registrada nas evidências.
 
 ## O que funciona
 
@@ -33,9 +66,11 @@ O AQUA Lunar permite explorar essas relações sem apresentar um cenário hipot�
 | Comparação | Comparar o cenário atual, três perfis e um cenário salvo. |
 | Persistência local | Salvar e recuperar um cenário no mesmo navegador. |
 | Exportação | Baixar um relatório Markdown com entradas, cálculos, limites e fontes. |
-| Evidências | Buscar e consultar dez fontes primárias. |
+| Evidências | Consultar fontes primárias e caminhos de pesquisa para dados lunares. |
+| Consulta ao ODE | Módulos para consultar metadados públicos do acervo lunar da NASA PDS e preservar a procedência da consulta. |
+| Cenários portáteis | Funções validadas para exportar e importar premissas em JSON versionado. |
 
-**Todos os parâmetros numéricos de entrada são hipóteses.** Não foram extraídos de rasters lunares nem calibrados com equipamentos. A interface é um laboratório de cenários, sem certificação de potabilidade, previsão operacional ou reserva mineral estimada.
+**Todos os parâmetros numéricos de entrada são hipóteses.** Não foram extraídos automaticamente de rasters lunares nem calibrados com equipamentos. A interface é um laboratório de cenários, sem certificação de potabilidade, previsão operacional ou reserva mineral estimada.
 
 ## Experimente em três minutos
 
@@ -51,8 +86,8 @@ O AQUA Lunar permite explorar essas relações sem apresentar um cenário hipot�
 Requisitos: Node.js 22.12 ou superior e npm.
 
 ```bash
-git clone https://github.com/SouBeatrizKaroline/aqua-lunar.git
-cd aqua-lunar
+git clone https://github.com/SouBeatrizKaroline/SpaceMiningChallenge_AquaLunar.git
+cd SpaceMiningChallenge_AquaLunar
 npm ci
 npm run dev
 ```
@@ -99,7 +134,10 @@ As referências abaixo orientam o contexto e as perguntas. **Nenhuma delas forne
 | [NASA/JPL: Moon Trek](https://trek.nasa.gov/moon/) | Ponto de partida para uma futura seleção de área com camadas verificáveis. |
 | [NASA PDS: Diviner](https://pds-geosciences.wustl.edu/missions/lro/diviner.htm) | Dados térmicos e produtos derivados. O briefing do desafio pede PRP V2.0. |
 | [NASA PDS: LOLA](https://pds-geosciences.wustl.edu/missions/lro/lola.htm) | Altimetria e topografia para investigar acesso. |
+| [NASA PDS: LEND](https://pds-geosciences.wustl.edu/missions/lro/lend.htm) | Contexto para leitura de produtos de nêutrons e investigação de hidrogênio. |
 | [Lunar Orbital Data Explorer](https://ode.rsl.wustl.edu/moon/) | Busca e acesso a produtos e metadados. |
+| [ODE REST Interface Manual](https://oderest.rsl.wustl.edu/ODE_REST_V2.1.6.pdf) | Referência da consulta pública de metadados usada pelos módulos de integração. |
+| [Diviner PRP, rótulo do polo sul](https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_prp/dlre_prp_south.xml) | Verificação de campos de versão e do significado dos produtos polares derivados. |
 
 O corte do material é uma ilustração vetorial construída para esta interface, sem escala ou localização real. Não é imagem orbital, mapa de gelo ou desenho de equipamento validado.
 
@@ -109,6 +147,8 @@ O corte do material é uma ilustração vetorial construída para esta interface
 src/
   App.tsx          Interface, diagrama e navegação
   model.ts         Catálogo, balanços, perguntas e relatório
+  lunarApi.ts      Consulta e validação de metadados do ODE
+  scenarioFiles.ts Importação e exportação de cenários em JSON
   styles.css       Identidade visual e responsividade
 tests/
   model.test.ts    Conservação de massa, limites e comportamento
@@ -117,12 +157,13 @@ docs/
   fontes.md       Proveniência e interpretação
   arquitetura.md  Estrutura e evolução
   desafio.md      Uso no Space Mining Challenge
+  integracoes.md  ODE, procedência, privacidade e limites
   validacao.md    Testes realizados e limites da verificação
 ```
 
 ## Qualidade e privacidade
 
-O modelo possui **17 testes automatizados**. Os fluxos principais foram exercitados em Chromium, incluindo exportação, recuperação do cenário salvo, comparação e navegação em telas de 390 e 320 pixels. Consulte o [registro de validação](./docs/validacao.md).
+O modelo possui testes automatizados para o balanço de massa, limites de cenários, serialização de arquivos e normalização de respostas do catálogo. Os fluxos principais da interface atual foram exercitados em Chromium, incluindo exportação, recuperação do cenário salvo, comparação e navegação em telas de 390 e 320 pixels. Consulte o [registro de validação](./docs/validacao.md).
 
 O botão de salvar mantém um único cenário local e substitui o anterior. Alterações posteriores só são persistidas ao salvar novamente. Restaurar as premissas iniciais mantém o cenário salvo disponível na comparação.
 

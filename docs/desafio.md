@@ -1,6 +1,10 @@
-# Aplicação ao Space Mining Challenge
+# Aplicação ao Space Mining Challenge Brasil 2026
 
-O laboratório pode apoiar a escolha de uma missão de água lunar, mas o repositório não substitui os slides e o pitch.
+O laboratório apoia a escolha de uma missão de água lunar. Ele não substitui a decisão da equipe, os slides ou o pitch.
+
+## Princípio do briefing
+
+O desafio não define o recurso a ser minerado. Ele avalia a qualidade da decisão: evidências consideradas, alternativas comparadas, incertezas reconhecidas e capacidade de sustentar a escolha. O AQUA Lunar é útil quando a equipe escolhe investigar água e precisa tornar as premissas de processamento verificáveis.
 
 ## Entrega a construir
 
@@ -11,6 +15,19 @@ O laboratório pode apoiar a escolha de uma missão de água lunar, mas o reposi
 5. Processo de decisão e registro de uso de inteligência artificial exigido pelo briefing.
 
 O briefing fornecido estabelece slides de até 14 páginas, pitch de 5 minutos e Moon Trek como ponto de partida. Os três perfis deste laboratório não são evidências de locais reais e não podem ser apresentados assim.
+
+## Roteiro de uso pela equipe
+
+1. Use Moon Trek para delimitar uma área de investigação e registrar camadas consultadas.
+2. Selecione pelo menos três evidências complementares. Por exemplo: condições térmicas do Diviner, topografia ou declividade do LOLA e um indicador relacionado a hidrogênio do LEND.
+3. Registre instrumento, produto, versão, área, resolução e o que cada evidência permite ou não permite concluir.
+4. Traga para o AQUA Lunar apenas as premissas que a equipe consegue explicar: meta, concentração hipotética, cobertura, recuperações, energia e finalidade.
+5. Compare alternativas e exporte o raciocínio. A opção com menor energia parcial não deve vencer automaticamente, pois acesso, incertezas, coextraídos e uso final também contam.
+6. Converta o resultado em uma decisão curta, uma operação de extração e uma utilização clara para os slides.
+
+## Registro de ferramentas e fontes
+
+O briefing exige transparência sobre o uso de inteligência artificial e sobre as fontes. Para cada afirmação relevante, mantenha o link primário, data de consulta, instrumento, produto e a interpretação da equipe. Se uma ferramenta sugerir uma concentração, uma rota ou uma conclusão que não aparece na fonte, marque como hipótese até verificar ou descartar.
 
 ## Pergunta central
 

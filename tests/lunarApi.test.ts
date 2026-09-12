@@ -100,7 +100,7 @@ describe("Catálogo lunar e caderno de pesquisa", () => {
     }), "thermal")[0];
     expect(new URL(record.productUrl).hostname).toBe("ode.rsl.wustl.edu");
     expect(record.labelUrl).toBe("");
-    expect(record.filesUrl).toBe("");
+    expect(new URL(record.filesUrl).hostname).toBe("ode.rsl.wustl.edu");
   });
 
   it("recupera notas e proveniência sem aceitar conteúdo inválido do armazenamento", () => {
