@@ -77,6 +77,8 @@ A camada térmica foi registrada separadamente: [Diviner Global Max Temp no Quic
 
 Registros adicionais enviados pela equipe: [consulta 1](https://bit.ly/3Vr5I3e) e [consulta 2](https://bit.ly/3V6I0sX). A [captura de configuração das camadas](evidencias/quickmap-diviner-psr-lola.png) identifica Global Max Temp, PSRs e LOLA_SPOLE 5M [Slope] no painel do QuickMap.
 
+A equipe também criou a [consulta LEND para a referência de Shackleton](<https://quickmap.lroc.im-ldi.com/layers?prjExtent=-63200.3965068%2C-67666.1295457%2C81999.6034932%2C52333.8704543&selectedFeature=%40%40user-defined%2CK7JmI&earthShadowEnabled=true&proj=27&stack=3314%2C3035&defs=N4IgzADGCsIFygPYAcCGBjAlgFwJ7wEYBfAGnDAIBZ4k0s9Ciig&features=129.2%2C-89.6%40%40%7B%22id%22%3A%22K7JmI%22%7D>), com ponto em 89,60000° S, 129,20000° E, escala de 20 km e a camada **Polar Water Equivalent Hydrogen** ativa. O registro documenta a consulta de hidrogênio equivalente em água; não atribui um teor ao ponto sem leitura explícita do pixel e da legenda.
+
 Esse link preserva a projeção, a extensão do mapa, as camadas e o intervalo de tempo usados na consulta. Ele permite que outra pessoa reproduza a visualização. A equipe ainda deve identificar no material entregue que a referência geográfica da cratera Shackleton é 89,6° S e 129,2° E, e explicar o limite da camada de declividade.
 
 ## Extração proposta

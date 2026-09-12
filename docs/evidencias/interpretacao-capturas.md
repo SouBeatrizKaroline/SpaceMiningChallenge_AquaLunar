@@ -33,3 +33,17 @@ As imagens não possuem uma camada LEND identificada. Portanto, não são evidê
 ## Frase segura para a apresentação
 
 > As camadas consultadas mostram relevo, declividade, sombra permanente e condição térmica de referência. Elas apoiam a seleção de áreas para prospecção e planejamento de rota, mas não comprovam, sozinhas, água extraível ou uma mina viável.
+
+## Registro LEND criado para Shackleton
+
+A equipe agora possui uma [consulta reproduzível do QuickMap com LEND](<https://quickmap.lroc.im-ldi.com/layers?prjExtent=-63200.3965068%2C-67666.1295457%2C81999.6034932%2C52333.8704543&selectedFeature=%40%40user-defined%2CK7JmI&earthShadowEnabled=true&proj=27&stack=3314%2C3035&defs=N4IgzADGCsIFygPYAcCGBjAlgFwJ7wEYBfAGnDAIBZ4k0s9Ciig&features=129.2%2C-89.6%40%40%7B%22id%22%3A%22K7JmI%22%7D>). Ela contém:
+
+- projeção **Stereographic (South Pole)**;
+- ponto de referência em **89,60000° S, 129,20000° E**;
+- escala de **20 km**;
+- camada **LRO LEND: Polar Water Equivalent Hydrogen** ativa;
+- mosaico LROC como base visual.
+
+A descrição da própria camada informa que ela é um mapa de **abundância de hidrogênio equivalente em água**, em percentagem de massa, para o polo sul entre 75° S e 90° S, derivado dos sensores colimados do LEND. A legenda da camada indica que os valores mais altos, de até **0,5 wt% WEH**, são codificados em violeta.
+
+Este registro comprova que a equipe consultou o produto LEND na referência de Shackleton. Ele **não autoriza atribuir 0,5 wt% ao ponto marcado**, pois isso exigiria registrar o valor da legenda ou do pixel naquele ponto e considerar a resolução e o método de conversão. WEH é um indicador de hidrogênio, não confirmação direta de água extraível.

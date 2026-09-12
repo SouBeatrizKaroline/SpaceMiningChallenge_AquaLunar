@@ -43,6 +43,8 @@ Este documento fecha a base científica da Missão Aurora Sul sem transformar in
 
 **Como orienta a decisão:** existe motivo para fazer prospecção de hidrogênio na região, mas não há base para anunciar uma reserva, teor ou profundidade explorável. A missão incorpora prospecção antes da extração e trata Shackleton como uma decisão de acesso e energia com incerteza de recurso, não como o maior depósito já demonstrado.
 
+**Consulta da equipe:** [QuickMap, ponto de referência e LEND ativo](<https://quickmap.lroc.im-ldi.com/layers?prjExtent=-63200.3965068%2C-67666.1295457%2C81999.6034932%2C52333.8704543&selectedFeature=%40%40user-defined%2CK7JmI&earthShadowEnabled=true&proj=27&stack=3314%2C3035&defs=N4IgzADGCsIFygPYAcCGBjAlgFwJ7wEYBfAGnDAIBZ4k0s9Ciig&features=129.2%2C-89.6%40%40%7B%22id%22%3A%22K7JmI%22%7D>). A camada é identificada pelo QuickMap como **Polar Water Equivalent Hydrogen** para 75° S a 90° S, derivada dos sensores colimados do LEND.
+
 **Limite:** menor fluxo de nêutrons é indicador indireto de hidrogênio. Não confirma H₂O, forma do material, pureza, profundidade nem taxa de recuperação.
 
 **Fontes:** [PDS LEND](https://pds-geosciences.wustl.edu/missions/lro/lend.htm) e [Gläser et al., 2021](https://doi.org/10.1029/2020JE006598).

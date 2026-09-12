@@ -37,6 +37,7 @@ Este inventário preserva os links enviados durante a pesquisa. Fontes primária
 - [Consulta Diviner Global Max Temp](https://bit.ly/4h2Juvw)
 - [Consulta complementar 1](https://bit.ly/3Vr5I3e)
 - [Consulta complementar 2](https://bit.ly/3V6I0sX)
+- [Consulta LEND, Shackleton 89,6° S e 129,2° E](<https://quickmap.lroc.im-ldi.com/layers?prjExtent=-63200.3965068%2C-67666.1295457%2C81999.6034932%2C52333.8704543&selectedFeature=%40%40user-defined%2CK7JmI&earthShadowEnabled=true&proj=27&stack=3314%2C3035&defs=N4IgzADGCsIFygPYAcCGBjAlgFwJ7wEYBfAGnDAIBZ4k0s9Ciig&features=129.2%2C-89.6%40%40%7B%22id%22%3A%22K7JmI%22%7D>)
 
 ## Contexto e divulgação
 
