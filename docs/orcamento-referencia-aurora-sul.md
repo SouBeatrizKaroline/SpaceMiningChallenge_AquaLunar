@@ -35,11 +35,11 @@ As cargas de prospecção, escavação e aquecimento não devem operar ao mesmo 
 ## Referência espacial
 
 - Área única: **cratera Shackleton, polo sul lunar**.
-- Ponto de referência geográfico da cratera: **89,66° S, 130,20° E**.
+- Ponto de referência geográfico da cratera: **89,6° S, 129,2° E**.
 - A coordenada identifica a área de estudo, não uma posição final de pouso ou de painéis solares.
 - A posição final na borda precisa de uma captura no Moon Trek com iluminação, declividade e linha de visada.
 
-No QuickMap, selecione **Stereographic (South Pole)** e pesquise `-89.66,130.2`. A ferramenta centraliza a área e permite começar a leitura em escala de aproximadamente 20 km.
+No QuickMap, selecione **Stereographic (South Pole)** e pesquise `-89.6,129.2`. A ferramenta centraliza a área e permite começar a leitura em escala de aproximadamente 20 km.
 
 ## Capturas necessárias
 

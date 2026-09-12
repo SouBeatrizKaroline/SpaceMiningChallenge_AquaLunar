@@ -19,8 +19,8 @@ Atualizado após a organização das evidências da Missão Aurora Sul.
 
 | Item | Por que falta | Ação da equipe |
 |---|---|---|
-| Evidência LEND da área | O projeto explica LEND e cita o produto, mas ainda não registra uma leitura ou captura da área de Shackleton. | Salvar produto/camada, escala, área e interpretação do fluxo de nêutrons. |
-| Leitura Diviner PRP V2.0 da área | A captura Global Max Temp é um registro útil de condição térmica, mas não substitui a leitura do produto polar V2.0 na área escolhida. | Registrar produto, versão, área, valor ou intervalo observado e limite. |
+| Captura LEND no portal | Há uma evidência publicada e específica para a vizinhança de Shackleton, mas não uma captura própria do produto no portal. | Salvar produto/camada, escala, área e interpretação do fluxo de nêutrons para reforçar a apresentação. |
+| Leitura Diviner PRP V2.0 da área | A equipe tem a condição térmica e o produto correto documentados; falta anotar um valor ou intervalo do pixel da área, se a apresentação quiser quantificar a temperatura. | Registrar produto, versão, área, valor ou intervalo observado e limite. |
 | Rota e área operacional | Shackleton está definido como região, mas ainda não há ponto final de pouso, área de painéis, rota e área de prospecção delimitados. | Usar Moon Trek para salvar iluminação, declividade, elevação e linha de visada da mesma área. |
 | Fechamento da engenharia | Massa e energia são hipóteses de planejamento, não dimensionamento validado. | Conferir se a carga prioritária, armazenamento e períodos de sombra sustentam a proposta de 24 meses. |
 | Material de entrega | O repositório não contém slides nem roteiro, por decisão da equipe. | Converter a decisão, evidências, extração, utilização e registro de IA em até 14 slides e pitch de 5 minutos. |

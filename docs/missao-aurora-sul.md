@@ -6,10 +6,12 @@
 
 A decisão é provisória. Ela prioriza água porque o uso local reduz a dependência de massa lançada da Terra, mas a equipe não trata a presença de hidrogênio, a sombra permanente ou a baixa temperatura como prova de uma jazida explorável.
 
+O [dossiê de dados reais de Shackleton](dados-reais-shackleton.md) registra os resultados científicos que sustentam a hipótese e os limites que impedem tratar a área como reserva confirmada.
+
 ## Área de estudo
 
 - Região única: cratera Shackleton, polo sul lunar. A borda e o interior pertencem à mesma unidade geográfica da missão.
-- Referência geográfica: o centro de Shackleton fica próximo de 89,66° S e 130,2° E.
+- Referência geográfica: o centro de Shackleton fica próximo de 89,6° S e 129,2° E.
 - Delimitação operacional: a equipe deve desenhar no Moon Trek uma área de pouso e uma área de prospecção antes de apresentar a proposta. Não há coordenada de lavra definida neste documento.
 
 O [orçamento de referência](./orcamento-referencia-aurora-sul.md) adota 2.700 kg de payload de planejamento e uma arquitetura solar de 8 kW nominais. São hipóteses transparentes para comparar massa, autonomia e risco, não números fornecidos pelo desafio ou confirmados para Shackleton.
@@ -20,8 +22,8 @@ O [orçamento de referência](./orcamento-referencia-aurora-sul.md) adota 2.700 
 
 - **Instrumento ou camada:** Diviner, Lunar Reconnaissance Orbiter.
 - **Produto:** Diviner Polar Resource Products, versão 2.0. O desafio pede expressamente esta versão e alerta contra a versão 1.0.
-- **Registro verificável:** o conjunto inclui temperatura média anual, máxima anual e estimativa de profundidade até permafrost para regiões polares. O Diviner mede radiação térmica e solar refletida; a profundidade é uma estimativa derivada do produto polar.
-- **O que fundamenta:** a temperatura é uma variável necessária para investigar se uma área fria pode preservar voláteis. Ela justifica abrir a área no Moon Trek e comparar as camadas térmicas antes de considerar uma rota de extração.
+- **Registro verificável:** o conjunto inclui temperatura média anual, máxima anual e estimativa de profundidade até permafrost para regiões polares. A documentação do LRO informa que PSRs entre aproximadamente 40 K e 110 K podem reter água gelada por escalas geológicas; a camada Global Max Temp foi registrada pela equipe. O Diviner mede radiação térmica e solar refletida; a profundidade é uma estimativa derivada do produto polar.
+- **O que fundamenta:** a combinação de PSR em Shackleton e mapeamento térmico Diviner justifica investigar estabilidade potencial de voláteis e dimensionar controle térmico antes de considerar uma rota de extração.
 - **Limite:** baixa temperatura não mede diretamente massa de gelo, concentração, profundidade real ou recuperabilidade. Este registro ainda não contém um valor de pixel para a área da missão.
 - **Fonte primária:** [PDS Geosciences, Diviner Polar Resource Products](https://pds-geosciences.wustl.edu/missions/lro/diviner.htm)
 
@@ -29,10 +31,10 @@ O [orçamento de referência](./orcamento-referencia-aurora-sul.md) adota 2.700 
 
 - **Instrumento ou camada:** LEND, Lunar Exploration Neutron Detector, a bordo do LRO.
 - **Produto:** dados RDR do LEND no NASA Planetary Data System.
-- **Registro verificável:** o LEND mede fluxo de **nêutrons** da superfície. A documentação do PDS descreve seu uso para mapas de albedo de nêutrons e estimativas de abundância de hidrogênio na superfície. Uma síntese técnica da NASA apresenta mapas de hidrogênio equivalente em água nos polos, derivados de LEND.
+- **Registro verificável:** o LEND mede fluxo de **nêutrons** da superfície. A documentação do PDS descreve seu uso para mapas de albedo de nêutrons e estimativas de abundância de hidrogênio na superfície. Gläser et al. (2021), ao analisar a região polar sul, registrou supressão de nêutrons fraca na vizinhança de Shackleton, sem classificá-la como assinatura distinta de depósito rico em hidrogênio.
 - **O que fundamenta:** um sinal compatível com hidrogênio merece investigação junto com temperatura e terreno. Ele não determina sozinho que a água esteja disponível para mineração.
 - **Limite:** a assinatura é indireta e depende de resolução espacial, modelo de conversão e mistura do regolito. Ela não identifica a forma química do hidrogênio nem confirma gelo em um ponto.
-- **Fontes primárias:** [PDS, LRO LEND](https://pds-geosciences.wustl.edu/missions/lro/lend.htm) e [NASA, Hydrogen at the Lunar Poles](https://science.nasa.gov/wp-content/uploads/2023/05/NuggetHydrogenAtTheLunarPoles20170210.pdf)
+- **Fontes primárias:** [PDS, LRO LEND](https://pds-geosciences.wustl.edu/missions/lro/lend.htm) e [Gläser et al., 2021](https://doi.org/10.1029/2020JE006598)
 
 ### 3. Terreno, rota e segurança
 
@@ -75,7 +77,7 @@ A camada térmica foi registrada separadamente: [Diviner Global Max Temp no Quic
 
 Registros adicionais enviados pela equipe: [consulta 1](https://bit.ly/3Vr5I3e) e [consulta 2](https://bit.ly/3V6I0sX). A [captura de configuração das camadas](evidencias/quickmap-diviner-psr-lola.png) identifica Global Max Temp, PSRs e LOLA_SPOLE 5M [Slope] no painel do QuickMap.
 
-Esse link preserva a projeção, a extensão do mapa, as camadas e o intervalo de tempo usados na consulta. Ele permite que outra pessoa reproduza a visualização. A equipe ainda deve identificar no material entregue que a referência geográfica da cratera Shackleton é 89,66° S e 130,20° E, e explicar o limite da camada de declividade.
+Esse link preserva a projeção, a extensão do mapa, as camadas e o intervalo de tempo usados na consulta. Ele permite que outra pessoa reproduza a visualização. A equipe ainda deve identificar no material entregue que a referência geográfica da cratera Shackleton é 89,6° S e 129,2° E, e explicar o limite da camada de declividade.
 
 ## Extração proposta
 
