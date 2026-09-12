@@ -16,13 +16,11 @@ O desafio não define o recurso a ser minerado. Ele avalia a qualidade da decis�
 
 O briefing fornecido estabelece slides de até 14 páginas, pitch de 5 minutos e Moon Trek como ponto de partida. Os três perfis deste laboratório não são evidências de locais reais e não podem ser apresentados assim.
 
-## Material de entrega incluído
+## Registro de evidências incluído
 
 - [Missão Aurora Sul](./missao-aurora-sul.md): hipótese para o polo sul com três registros de fontes reais, limites e links primários.
-- [Roteiro de pitch](./roteiro-pitch-aurora-sul.md): fala estimada para cinco minutos.
-- [Apresentação editável](./apresentacao-aurora-sul.pptx): 13 slides, dentro do limite do briefing.
 
-Os registros da Aurora Sul fundamentam uma área de estudo, sem alegar uma reserva confirmada ou uma mina definida. A equipe precisa executar e registrar a análise de camadas no Moon Trek antes da submissão.
+Os registros da Aurora Sul fundamentam uma área de estudo, sem alegar uma reserva confirmada ou uma mina definida. A equipe precisa executar e registrar a análise de camadas no Moon Trek antes da submissão. A apresentação e o pitch pertencem à entrega da equipe e não fazem parte do código.
 
 ## Roteiro de uso pela equipe
 

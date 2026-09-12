@@ -8,7 +8,7 @@ Um laboratório interativo para entender como o material encontrado muda uma mis
 
 **MVP funcional v0.1.0.** [Aplicação ao desafio](./docs/desafio.md) · [Integrações e dados externos](./docs/integracoes.md) · [Validação e limites](./docs/validacao.md)
 
-[Comparação de recursos](./docs/recursos.md) · [Missão Aurora Sul com evidências verificáveis](./docs/missao-aurora-sul.md) · [Roteiro de pitch](./docs/roteiro-pitch-aurora-sul.md) · [Apresentação editável, 13 slides](./docs/apresentacao-aurora-sul.pptx)
+[Comparação de recursos](./docs/recursos.md) · [Missão Aurora Sul com evidências verificáveis](./docs/missao-aurora-sul.md)
 
 ![Qualidade](https://github.com/SouBeatrizKaroline/SpaceMiningChallenge_AquaLunar/actions/workflows/ci.yml/badge.svg)
 
@@ -47,7 +47,7 @@ O briefing pede que a equipe decida o que vale a pena minerar, em vez de apenas 
 | Utilização | Permite comparar pesquisa, suporte à vida, oxigênio e gases para propelente. | A cadeia de valor e os requisitos do produto para a finalidade escolhida. |
 | Processo de decisão e uso de IA | Exporta premissas, cálculos, fontes e limites para revisão. | Registrar como ferramentas foram usadas, o que foi conferido na fonte primária e o que foi considerado incerto ou não confiável. |
 
-O briefing também indica Moon Trek como ponto de partida, um documento de até 14 slides e pitch de 5 minutos. Este repositório inclui uma proposta editável de 13 slides e um roteiro de cinco minutos para a hipótese Aurora Sul. A equipe deve revisar os registros, completar as capturas espaciais e adaptar o material à sua decisão final.
+O briefing também indica Moon Trek como ponto de partida, um documento de até 14 slides e pitch de 5 minutos. O repositório mantém o laboratório, os dados e a documentação necessários para a equipe construir esses materiais fora do código.
 
 ### Estado atual de alinhamento
 
@@ -82,7 +82,7 @@ O núcleo do projeto está alinhado ao desafio ao explicitar escolhas, perdas, i
 4. Em **Missão**, dê um nome à missão e informe a região. Registre ao menos três evidências, cada uma com instrumento ou camada, produto, interpretação, limite e link primário.
 5. Descreva a operação de acesso, captura e separação. O painel incorpora as premissas atuais do laboratório somente se água for a escolha. Para outro recurso, a equipe deve definir parâmetros específicos.
 6. Explique a utilização do produto e preencha o registro de verificação: fontes abertas, ferramentas usadas, hipóteses mantidas e informações descartadas.
-7. Exporte a comparação e o rascunho de missão em Markdown. Use-os como base para organizar os slides, revisando cada afirmação contra a fonte original.
+7. Exporte a comparação e o rascunho de missão em Markdown. Use-os como base para a documentação da equipe, revisando cada afirmação contra a fonte original.
 
 ### Antes de entregar
 
@@ -102,7 +102,7 @@ O núcleo do projeto está alinhado ao desafio ao explicitar escolhas, perdas, i
 5. Troque a finalidade para produção de gases. A energia de eletrólise entra no modelo e a água é convertida em equivalentes ideais de H₂ e O₂.
 6. Abra a comparação e exporte o raciocínio.
 
-Para um fluxo completo de entrega, comece pelos dados, avance para a missão e só então transforme o resultado em apresentação.
+Para um fluxo completo, comece pelos dados, avance para a missão e documente a decisão com as fontes verificadas.
 
 ## Executar localmente
 
