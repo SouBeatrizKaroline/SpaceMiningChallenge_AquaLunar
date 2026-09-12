@@ -6,7 +6,7 @@
 
 A decisão é provisória. Ela prioriza água porque o uso local reduz a dependência de massa lançada da Terra, mas a equipe não trata a presença de hidrogênio, a sombra permanente ou a baixa temperatura como prova de uma jazida explorável.
 
-O [dossiê de dados reais de Shackleton](dados-reais-shackleton.md) registra os resultados científicos que sustentam a hipótese e os limites que impedem tratar a área como reserva confirmada.
+O [dossiê de dados reais de Shackleton](dados-reais-shackleton.md) registra os resultados científicos que sustentam a hipótese e os limites que impedem tratar a área como reserva confirmada. A [comparação das regiões polares](comparacao-regioes-polares.md) mostra por que Cabeus, Haworth, Shoemaker e Faustini foram considerados antes da escolha.
 
 ## Área de estudo
 
