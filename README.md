@@ -2,7 +2,7 @@
 
 **A mesma molécula. Outra missão.**
 
-Um laboratório interativo para entender como o material encontrado muda uma missão de extração de água lunar. Concentração de gelo, cobertura, recuperação e finalidade aparecem em um mesmo cenário, com balanço de massa, energia parcial e perguntas para a próxima investigação.
+Um laboratório interativo para apoiar uma missão de **mineração de água lunar**. Concentração de gelo, cobertura, recuperação, massa lançada e finalidade aparecem em um mesmo cenário, com balanço de massa, energia parcial e perguntas para a próxima investigação.
 
 [Abrir laboratório](https://soubeatrizkaroline.github.io/SpaceMiningChallenge_AquaLunar/) · [Método](./docs/metodologia.md) · [Fontes](./docs/fontes.md) · [Contribuir](./CONTRIBUTING.md)
 
@@ -53,6 +53,46 @@ O briefing também indica Moon Trek como ponto de partida, um documento de até 
 
 O núcleo do projeto está alinhado ao desafio ao explicitar escolhas, perdas, incertezas e critérios de uso. A proposta Aurora Sul já documenta três registros de dados reais e seus limites. Ela ainda não fixa uma coordenada de pouso ou uma lavra, porque isso exige a análise espacial da equipe no Moon Trek e a leitura dos produtos da área escolhida.
 
+## Decisão adotada pela equipe
+
+**Aurora Sul: extrair água gelada do regolito na cratera Shackleton, no polo sul lunar, para reduzir a massa de consumíveis lançados da Terra, sustentar uma operação local e viabilizar expedições de maior duração.**
+
+Shackleton é a área de estudo mais viável **nesta hipótese preliminar** porque reúne uma cratera polar com regiões frias de interesse para voláteis e uma borda onde a equipe pode investigar iluminação, terreno e comunicação. Essa frase não declara que Shackleton contém uma reserva confirmada ou que vence todos os locais. A decisão só se sustenta depois de a equipe cruzar as camadas no Moon Trek e registrar a área, a escala, a versão e a limitação de cada produto.
+
+Água local reduz a dependência de reabastecimento vindo da Terra. Depois de tratada, ela pode apoiar processos da base e, por eletrólise, fornecer oxigênio para respiração e oxigênio com hidrogênio para uma futura cadeia de propelente. Cada uso impõe requisitos próprios de pureza, energia, armazenamento e segurança.
+
+### O que cada instrumento responde
+
+| Instrumento | Nome correto | Pergunta que ajuda a responder | Limite importante |
+| --- | --- | --- | --- |
+| Diviner | Diviner Lunar Radiometer Experiment, a bordo do Lunar Reconnaissance Orbiter | Quais são as condições térmicas? Nos Polar Resource Products V2.0, qual a profundidade **estimada** até o permafrost de gelo? | O radiômetro mede radiação térmica e solar refletida. A profundidade é um produto derivado, não uma perfuração. Temperatura baixa não confirma uma jazida. |
+| LEND | Lunar Exploration Neutron Detector, a bordo do Lunar Reconnaissance Orbiter | Onde o fluxo de **nêutrons** é compatível com maior abundância de hidrogênio no regolito? | Hidrogênio é um indicador indireto. Ele não confirma água, forma do gelo, profundidade ou massa recuperável sozinho. |
+| LOLA | Lunar Orbiter Laser Altimeter, a bordo do Lunar Reconnaissance Orbiter | Onde é possível pousar, circular e operar, considerando elevação e declividade? | Topografia não substitui análise de rochas, iluminação ao longo do tempo ou demonstração de segurança local. |
+
+Uma área com possível hidrogênio mais profundo pode exigir muito mais escavação e energia. Outra área com sinal menos intenso, mas com gelo potencialmente mais acessível, pode atender à meta inicial de água com menos material processado. O laboratório foi feito para registrar esse tipo de comparação, sem assumir que o maior sinal representa a melhor mina.
+
+### Payload, massa e autonomia de 24 meses
+
+O desafio limita a massa lançada e não prevê reabastecimento durante os primeiros 24 meses. No campo **Payload e autonomia** da tela Missão, a equipe deve registrar o que desce à Lua e por que cada item é necessário:
+
+- sistema de pouso, estrutura, controle térmico e comunicações;
+- geração e armazenamento de energia compatíveis com a iluminação do local;
+- mobilidade, navegação e prospecção do regolito;
+- escavação, transporte, reator térmico fechado, captura de vapor, condensação e tratamento;
+- proteção contra poeira, peças de reposição, sensores, ferramentas e margem de contingência.
+
+O repositório não inventa massas para esses itens. A escolha final deve incluir um orçamento de massa com valores rastreáveis, pois um recurso promissor pode deixar de ser viável se exigir energia, escavação ou redundância demais para a massa disponível.
+
+### Ferramentas de análise espacial
+
+| Ferramenta | Uso na decisão |
+| --- | --- |
+| [Moon Trek](https://trek.nasa.gov/moon/) | Ponto de partida obrigatório. Delimitar Shackleton, sobrepor camadas, medir distâncias, elevação, declividade, iluminação e trajetória. |
+| [LROC QuickMap](https://quickmap.lroc.im-ldi.com/) | Detalhar mosaicos, relevo, curvas de nível e iluminação após a delimitação inicial. |
+| [Lunar Orbital Data Explorer](https://ode.rsl.wustl.edu/moon/) | Localizar, visualizar e baixar produtos dos instrumentos quando a decisão exigir leitura adicional. |
+
+Comece pelo Moon Trek. ODE e dados brutos só agregam valor quando a equipe consegue explicar o produto, sua resolução, sua versão e seu limite.
+
 ## O que funciona
 
 | Experiência | O que permite fazer |
@@ -71,6 +111,7 @@ O núcleo do projeto está alinhado ao desafio ao explicitar escolhas, perdas, i
 | Evidências | Consultar fontes primárias e caminhos de pesquisa para dados lunares. |
 | Consulta ao ODE | Módulos para consultar metadados públicos do acervo lunar da NASA PDS e preservar a procedência da consulta. |
 | Cenários portáteis | Funções validadas para exportar e importar premissas em JSON versionado. |
+| Payload e autonomia | Registrar a carga enviada à Lua e checar se a proposta respeita massa limitada e 24 meses sem reabastecimento. |
 
 **Todos os parâmetros numéricos de entrada são hipóteses.** Não foram extraídos automaticamente de rasters lunares nem calibrados com equipamentos. A interface é um laboratório de cenários, sem certificação de potabilidade, previsão operacional ou reserva mineral estimada.
 
@@ -79,15 +120,17 @@ O núcleo do projeto está alinhado ao desafio ao explicitar escolhas, perdas, i
 1. Abra **Laboratório** e escolha a finalidade. Ajuste somente premissas que a equipe consegue explicar. Salve e exporte o cenário quando quiser comparar uma versão.
 2. Abra **Recursos** antes de assumir que água é a melhor escolha. Compare água, ilmenita, piroclásticos, PKT e hélio-3 com critérios que a equipe possa sustentar. Leia o guia de [comparação de recursos](./docs/recursos.md).
 3. Em **Dados lunares**, consulte uma camada no catálogo ODE. Abra o produto original, leia o rótulo e guarde apenas os registros que ajudam a responder uma pergunta da missão. O catálogo lista metadados, não mede gelo automaticamente.
-4. Em **Missão**, dê um nome à missão e informe a região. Registre ao menos três evidências, cada uma com instrumento ou camada, produto, interpretação, limite e link primário.
-5. Descreva a operação de acesso, captura e separação. O painel incorpora as premissas atuais do laboratório somente se água for a escolha. Para outro recurso, a equipe deve definir parâmetros específicos.
-6. Explique a utilização do produto e preencha o registro de verificação: fontes abertas, ferramentas usadas, hipóteses mantidas e informações descartadas.
-7. Exporte a comparação e o rascunho de missão em Markdown. Use-os como base para a documentação da equipe, revisando cada afirmação contra a fonte original.
+4. Em **Missão**, selecione água como recurso, dê um nome à missão e informe a região. Registre ao menos três evidências, cada uma com instrumento ou camada, produto, interpretação, limite e link primário.
+5. Liste o payload completo: energia, prospecção, mobilidade, extração, processamento, comunicação, peças e contingência. O desafio exige massa limitada e 24 meses sem reabastecimento.
+6. Descreva a operação de acesso, captura e separação. O painel incorpora as premissas atuais do laboratório para o cenário de água.
+7. Explique a utilização do produto e preencha o registro de verificação: fontes abertas, ferramentas usadas, hipóteses mantidas e informações descartadas.
+8. Exporte a comparação e o rascunho de missão em Markdown. Use-os como base para a documentação da equipe, revisando cada afirmação contra a fonte original.
 
 ### Antes de entregar
 
 - A decisão tem recurso, região e finalidade em uma frase.
 - Há pelo menos três evidências complementares, com limites explícitos.
+- O payload cobre operação, energia, segurança e 24 meses sem reabastecimento, dentro da massa disponível.
 - A extração corresponde ao terreno e ao material descritos.
 - A utilização não trata água separada como água certificada para consumo ou propelente pronto.
 - O processo de decisão identifica as fontes verificadas e o uso de ferramentas.
@@ -155,6 +198,7 @@ As referências abaixo orientam o contexto e as perguntas. **Nenhuma delas forne
 | [NASA NTRS: Technology Assessment for Producing Propellant From Lunar Water](https://ntrs.nasa.gov/citations/20230010039) | Referência de cadeia com extração, captura, purificação e eletrólise. |
 | [NASA NIAC: Aqua Factorem](https://www.nasa.gov/general/aqua-factorem-ultra-low-energy-lunar-water-extraction/) | Conceito de separação de gelo e regolito para discussão de rotas alternativas. |
 | [NASA/JPL: Moon Trek](https://trek.nasa.gov/moon/) | Ponto de partida para uma futura seleção de área com camadas verificáveis. |
+| [LROC QuickMap](https://quickmap.lroc.im-ldi.com/) | Análise de terreno e camadas regionais depois que a equipe delimita a área. |
 | [NASA PDS: Diviner](https://pds-geosciences.wustl.edu/missions/lro/diviner.htm) | Dados térmicos e produtos derivados. O briefing do desafio pede PRP V2.0. |
 | [NASA PDS: LOLA](https://pds-geosciences.wustl.edu/missions/lro/lola.htm) | Altimetria e topografia para investigar acesso. |
 | [NASA PDS: LEND](https://pds-geosciences.wustl.edu/missions/lro/lend.htm) | Contexto para leitura de produtos de nêutrons e investigação de hidrogênio. |

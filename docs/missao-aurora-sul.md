@@ -2,13 +2,13 @@
 
 ## Decisão
 
-**A Missão Aurora Sul propõe investigar e, somente após confirmação local, extrair água gelada do regolito em uma zona de estudo no polo sul, próxima à cratera Shackleton, para abastecer uma operação lunar e produzir oxigênio e propelente.**
+**A Missão Aurora Sul propõe extrair água gelada do regolito na cratera Shackleton, no polo sul lunar, condicionando o início da extração à confirmação local, para reduzir a massa de consumíveis lançados da Terra, abastecer a operação lunar e permitir expedições de maior duração.**
 
 A decisão é provisória. Ela prioriza água porque o uso local reduz a dependência de massa lançada da Terra, mas a equipe não trata a presença de hidrogênio, a sombra permanente ou a baixa temperatura como prova de uma jazida explorável.
 
 ## Área de estudo
 
-- Região: polo sul lunar, entorno de Shackleton.
+- Região única: cratera Shackleton, polo sul lunar. A borda e o interior pertencem à mesma unidade geográfica da missão.
 - Referência geográfica: o centro de Shackleton fica próximo de 89,66° S e 130,2° E.
 - Delimitação operacional: a equipe deve desenhar no Moon Trek uma área de pouso e uma área de prospecção antes de apresentar a proposta. Não há coordenada de lavra definida neste documento.
 
@@ -18,7 +18,7 @@ A decisão é provisória. Ela prioriza água porque o uso local reduz a depend�
 
 - **Instrumento ou camada:** Diviner, Lunar Reconnaissance Orbiter.
 - **Produto:** Diviner Polar Resource Products, versão 2.0. O desafio pede expressamente esta versão e alerta contra a versão 1.0.
-- **Registro verificável:** o conjunto inclui temperatura média anual, máxima anual e estimativa de profundidade até permafrost para regiões polares.
+- **Registro verificável:** o conjunto inclui temperatura média anual, máxima anual e estimativa de profundidade até permafrost para regiões polares. O Diviner mede radiação térmica e solar refletida; a profundidade é uma estimativa derivada do produto polar.
 - **O que fundamenta:** a temperatura é uma variável necessária para investigar se uma área fria pode preservar voláteis. Ela justifica abrir a área no Moon Trek e comparar as camadas térmicas antes de considerar uma rota de extração.
 - **Limite:** baixa temperatura não mede diretamente massa de gelo, concentração, profundidade real ou recuperabilidade. Este registro ainda não contém um valor de pixel para a área da missão.
 - **Fonte primária:** [PDS Geosciences, Diviner Polar Resource Products](https://pds-geosciences.wustl.edu/missions/lro/diviner.htm)
@@ -27,7 +27,7 @@ A decisão é provisória. Ela prioriza água porque o uso local reduz a depend�
 
 - **Instrumento ou camada:** LEND, Lunar Exploration Neutron Detector, a bordo do LRO.
 - **Produto:** dados RDR do LEND no NASA Planetary Data System.
-- **Registro verificável:** o LEND mede fluxo de nêutrons da superfície. A documentação do PDS descreve seu uso para mapas de albedo de nêutrons e estimativas de abundância de hidrogênio na superfície. Uma síntese técnica da NASA apresenta mapas de hidrogênio equivalente em água nos polos, derivados de LEND.
+- **Registro verificável:** o LEND mede fluxo de **nêutrons** da superfície. A documentação do PDS descreve seu uso para mapas de albedo de nêutrons e estimativas de abundância de hidrogênio na superfície. Uma síntese técnica da NASA apresenta mapas de hidrogênio equivalente em água nos polos, derivados de LEND.
 - **O que fundamenta:** um sinal compatível com hidrogênio merece investigação junto com temperatura e terreno. Ele não determina sozinho que a água esteja disponível para mineração.
 - **Limite:** a assinatura é indireta e depende de resolução espacial, modelo de conversão e mistura do regolito. Ela não identifica a forma química do hidrogênio nem confirma gelo em um ponto.
 - **Fontes primárias:** [PDS, LRO LEND](https://pds-geosciences.wustl.edu/missions/lro/lend.htm) e [NASA, Hydrogen at the Lunar Poles](https://science.nasa.gov/wp-content/uploads/2023/05/NuggetHydrogenAtTheLunarPoles20170210.pdf)
@@ -55,9 +55,15 @@ O conceito começa com um robô de reconhecimento que mede propriedades físicas
 
 Este é um conceito de engenharia, não uma operação demonstrada em Shackleton. A equipe precisa definir temperatura de processo, fonte de energia, capacidade, perdas, proteção contra poeira e protocolo de descarte a partir de fontes específicas antes de estimar produção.
 
+## Payload e autonomia
+
+Tudo que a operação usa precisa descer da Terra antes do início da missão. Para suportar 24 meses sem reabastecimento, o payload deve incluir pouso e estrutura, energia e armazenamento, comunicações, navegação, mobilidade, prospecção, escavação, transporte de regolito, reator fechado, captura de vapor, condensação, tratamento, proteção contra poeira, sensores, peças e margem de contingência.
+
+O projeto não atribui massas sem uma fonte de engenharia. O orçamento de massa é critério de decisão: se a rota para uma região exigir mais energia, escavação ou redundância do que a carga lançada suporta, a equipe deve rever o local ou a cadeia de extração.
+
 ## Utilização
 
-A primeira prioridade é água de processo e suporte à operação. Depois de purificada, uma fração pode servir ao sistema de suporte à vida. Outra fração pode alimentar eletrólise para produzir oxigênio e hidrogênio, desde que a massa, energia, pureza e armazenamento justifiquem essa rota.
+A primeira prioridade é água de processo e suporte à operação, reduzindo a dependência de reabastecimento enviado da Terra. Depois de purificada, uma fração pode servir ao sistema de suporte à vida e ajudar a prolongar expedições. Outra fração pode alimentar eletrólise para produzir oxigênio e hidrogênio, desde que a massa, energia, pureza e armazenamento justifiquem essa rota.
 
 ## Registro de ferramentas e IA
 
