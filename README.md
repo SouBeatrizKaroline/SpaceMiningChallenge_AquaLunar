@@ -61,6 +61,8 @@ Shackleton é a área de estudo mais viável **nesta hipótese preliminar** porq
 
 Água local reduz a dependência de reabastecimento vindo da Terra. Depois de tratada, ela pode apoiar processos da base e, por eletrólise, fornecer oxigênio para respiração e oxigênio com hidrogênio para uma futura cadeia de propelente. Cada uso impõe requisitos próprios de pureza, energia, armazenamento e segurança.
 
+O [registro da Missão Aurora Sul](./docs/missao-aurora-sul.md) reúne a decisão, os instrumentos, o payload, a energia, os riscos ambientais e a lista de verificações que a equipe precisa concluir antes da entrega.
+
 ### O que cada instrumento responde
 
 | Instrumento | Nome correto | Pergunta que ajuda a responder | Limite importante |

@@ -49,6 +49,20 @@ A decisão é provisória. Ela prioriza água porque o uso local reduz a depend�
 4. Compare a área com os produtos Diviner e LEND no [Lunar Orbital Data Explorer](https://ode.rsl.wustl.edu/moon/).
 5. Registre no aplicativo AQUA Lunar apenas o que a camada efetivamente mostra, incluindo versão, data de consulta e limitação.
 
+## Registro espacial antes da entrega
+
+A equipe deve completar este quadro depois de analisar a área no navegador. Ele impede que uma imagem bonita substitua uma evidência verificável.
+
+| Consulta | Registro que deve entrar na entrega | Decisão que ela informa |
+| --- | --- | --- |
+| Moon Trek, Shackleton | Captura com coordenadas, escala, norte e camada de iluminação | Posição dos painéis solares, períodos de sombra e prioridade de armazenamento. |
+| Moon Trek ou QuickMap | Captura de declividade, elevação e rota | Pouso, mobilidade entre energia e prospecção, cabos e comunicação. |
+| Diviner PRP V2.0 | Nome do produto, versão, área e leitura térmica | Condições para investigar permafrost e necessidade de controle térmico. |
+| LEND | Nome do produto, área e interpretação do fluxo de nêutrons | Prioridade de prospecção de hidrogênio, sem tratar o sinal como prova de gelo. |
+| LOLA | Nome do produto, resolução, área e limite de incerteza | Acesso, risco de terreno e viabilidade da rota. |
+
+Links de trabalho: [Moon Trek](https://trek.nasa.gov/moon/), [LROC QuickMap](https://quickmap.lroc.im-ldi.com/), [Lunar Orbital Data Explorer](https://ode.rsl.wustl.edu/moon/).
+
 ## Extração proposta
 
 O conceito começa com um robô de reconhecimento que mede propriedades físicas do regolito em amostras rasas. Se a missão confirmar gelo acessível, um escavador transporta o material para um reator fechado. O reator aquece o regolito de forma controlada, captura o vapor liberado e o conduz a um condensador. A unidade de tratamento separa água de outros voláteis e partículas antes do armazenamento.
@@ -69,6 +83,14 @@ O sistema não pode pressupor que a energia solar estará disponível o tempo to
 
 Medidas propostas para análise de engenharia: componentes tolerantes à radiação, blindagem onde necessária, redundância de sensores e comunicações, isolamento e controle térmico, vedação contra poeira, limpeza de painéis e peças de reposição. Esta lista identifica necessidades de payload; ela não comprova que a massa, a potência ou a vida útil sejam suficientes.
 
+### Orçamento que a equipe precisa fechar
+
+1. Massa de cada subsistema e margem de contingência.
+2. Potência média e de pico de cada carga: mobilidade, prospecção, escavação, aquecimento, condensação, comunicações e controle térmico.
+3. Geração solar estimada para a área e período selecionados.
+4. Energia necessária durante sombras e capacidade de armazenamento.
+5. Vida útil esperada, redundância e peças para 24 meses sem reabastecimento.
+
 ## Utilização
 
 A primeira prioridade é água de processo e suporte à operação, reduzindo a dependência de reabastecimento enviado da Terra. Depois de purificada, uma fração pode servir ao sistema de suporte à vida e ajudar a prolongar expedições. Outra fração pode alimentar eletrólise para produzir oxigênio e hidrogênio, desde que a massa, energia, pureza e armazenamento justifiquem essa rota.
@@ -77,7 +99,7 @@ A primeira prioridade é água de processo e suporte à operação, reduzindo a 
 
 - **Ferramentas usadas:** Moon Trek, Lunar Orbital Data Explorer, PDS Geosciences, produtos NASA Goddard e o aplicativo AQUA Lunar.
 - **Verificação em fonte primária:** links de cada evidência acima, além da documentação dos instrumentos e produtos.
-- **Uso de IA:** IA pode ajudar a organizar hipóteses, estruturar a comparação e revisar clareza. Ela não substitui leitura de rótulos, produtos e documentação técnica.
+- **Uso de IA:** a equipe usou IA como apoio à pesquisa, organização de fontes, formulação de perguntas e revisão de clareza. As evidências foram mantidas vinculadas às fontes primárias e precisam de conferência da equipe antes da submissão.
 - **Afirmações que exigem cautela:** “água polar significa gelo extraível”, “um mapa de hidrogênio define uma mina” e “Shackleton é automaticamente o melhor local” são conclusões que os dados citados não permitem sustentar.
 
 ## Próxima verificação necessária
