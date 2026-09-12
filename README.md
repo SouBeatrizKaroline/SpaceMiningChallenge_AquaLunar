@@ -8,7 +8,7 @@ Um laboratório interativo para entender como o material encontrado muda uma mis
 
 **MVP funcional v0.1.0.** [Aplicação ao desafio](./docs/desafio.md) · [Integrações e dados externos](./docs/integracoes.md) · [Validação e limites](./docs/validacao.md)
 
-[Comparação de recursos](./docs/recursos.md)
+[Comparação de recursos](./docs/recursos.md) · [Missão Aurora Sul com evidências verificáveis](./docs/missao-aurora-sul.md) · [Roteiro de pitch](./docs/roteiro-pitch-aurora-sul.md) · [Apresentação editável, 13 slides](./docs/apresentacao-aurora-sul.pptx)
 
 ![Qualidade](https://github.com/SouBeatrizKaroline/SpaceMiningChallenge_AquaLunar/actions/workflows/ci.yml/badge.svg)
 
@@ -37,21 +37,21 @@ Essa separação mantém a discussão útil para pesquisa e para o desafio: uma 
 
 ## Alinhamento ao Space Mining Challenge Brasil 2026
 
-O briefing pede que a equipe decida o que vale a pena minerar, em vez de apenas mostrar que um recurso existe. O AQUA Lunar é alinhado como ferramenta de apoio a uma decisão sobre água, desde que a equipe complete a escolha de uma região real com evidências espaciais verificáveis.
+O briefing pede que a equipe decida o que vale a pena minerar, em vez de apenas mostrar que um recurso existe. O AQUA Lunar apoia a comparação entre alternativas e aprofunda a hipótese de água quando ela se torna a escolha provisória. A equipe precisa completar a escolha de uma região real com evidências espaciais verificáveis.
 
 | Parte solicitada no desafio | Como o AQUA Lunar contribui | O que a equipe ainda precisa apresentar |
 | --- | --- | --- |
-| Decisão | Ajuda a estruturar a escolha de água como recurso e a finalidade de uso. | Uma frase com nome da missão, recurso e região específica. |
+| Decisão | Ajuda a comparar recursos e estruturar a escolha provisória com finalidade de uso. | Uma frase com nome da missão, recurso e região específica. |
 | Evidência | Reúne fontes primárias e caminhos para Moon Trek, Diviner, LOLA, LEND e ODE. | Pelo menos três evidências ligadas a instrumento ou camada, com interpretação da área escolhida. |
 | Extração | Modela alimentação, cobertura, perdas, energia parcial e perguntas de caracterização. | Uma operação coerente com as condições e premissas da região. |
 | Utilização | Permite comparar pesquisa, suporte à vida, oxigênio e gases para propelente. | A cadeia de valor e os requisitos do produto para a finalidade escolhida. |
 | Processo de decisão e uso de IA | Exporta premissas, cálculos, fontes e limites para revisão. | Registrar como ferramentas foram usadas, o que foi conferido na fonte primária e o que foi considerado incerto ou não confiável. |
 
-O briefing também indica Moon Trek como ponto de partida, um documento de até 14 slides e pitch de 5 minutos. O aplicativo não substitui os slides nem o pitch. Ele serve para documentar o raciocínio antes deles.
+O briefing também indica Moon Trek como ponto de partida, um documento de até 14 slides e pitch de 5 minutos. Este repositório inclui uma proposta editável de 13 slides e um roteiro de cinco minutos para a hipótese Aurora Sul. A equipe deve revisar os registros, completar as capturas espaciais e adaptar o material à sua decisão final.
 
 ### Estado atual de alinhamento
 
-O núcleo do projeto está alinhado ao desafio ao explicitar escolhas, perdas, incertezas e critérios de uso. Ele ainda não produz uma decisão final de missão, porque não associa automaticamente os controles a uma região lunar validada. Essa etapa deve ser feita pela equipe com produtos espaciais da área escolhida e registrada nas evidências.
+O núcleo do projeto está alinhado ao desafio ao explicitar escolhas, perdas, incertezas e critérios de uso. A proposta Aurora Sul já documenta três registros de dados reais e seus limites. Ela ainda não fixa uma coordenada de pouso ou uma lavra, porque isso exige a análise espacial da equipe no Moon Trek e a leitura dos produtos da área escolhida.
 
 ## O que funciona
 

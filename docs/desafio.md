@@ -1,10 +1,10 @@
 # Aplicação ao Space Mining Challenge Brasil 2026
 
-O laboratório apoia a escolha de uma missão de água lunar. Ele não substitui a decisão da equipe, os slides ou o pitch.
+O laboratório apoia a comparação de recursos e o aprofundamento de uma missão de água lunar. Ele não substitui a decisão da equipe, a revisão das fontes, os slides ou o pitch.
 
 ## Princípio do briefing
 
-O desafio não define o recurso a ser minerado. Ele avalia a qualidade da decisão: evidências consideradas, alternativas comparadas, incertezas reconhecidas e capacidade de sustentar a escolha. O AQUA Lunar é útil quando a equipe escolhe investigar água e precisa tornar as premissas de processamento verificáveis.
+O desafio não define o recurso a ser minerado. Ele avalia a qualidade da decisão: evidências consideradas, alternativas comparadas, incertezas reconhecidas e capacidade de sustentar a escolha. O AQUA Lunar ajuda a comparar hipóteses e, quando a equipe escolhe investigar água, torna explícitas as premissas de processamento.
 
 ## Entrega a construir
 
@@ -15,6 +15,14 @@ O desafio não define o recurso a ser minerado. Ele avalia a qualidade da decis�
 5. Processo de decisão e registro de uso de inteligência artificial exigido pelo briefing.
 
 O briefing fornecido estabelece slides de até 14 páginas, pitch de 5 minutos e Moon Trek como ponto de partida. Os três perfis deste laboratório não são evidências de locais reais e não podem ser apresentados assim.
+
+## Material de entrega incluído
+
+- [Missão Aurora Sul](./missao-aurora-sul.md): hipótese para o polo sul com três registros de fontes reais, limites e links primários.
+- [Roteiro de pitch](./roteiro-pitch-aurora-sul.md): fala estimada para cinco minutos.
+- [Apresentação editável](./apresentacao-aurora-sul.pptx): 13 slides, dentro do limite do briefing.
+
+Os registros da Aurora Sul fundamentam uma área de estudo, sem alegar uma reserva confirmada ou uma mina definida. A equipe precisa executar e registrar a análise de camadas no Moon Trek antes da submissão.
 
 ## Roteiro de uso pela equipe
 
