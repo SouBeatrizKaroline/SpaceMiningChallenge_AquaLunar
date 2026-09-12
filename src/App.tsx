@@ -42,6 +42,7 @@ import {
 } from "./model";
 import LunarExplorer from "./LunarExplorer";
 import MissionPlanner from "./MissionPlanner";
+import ResourceComparator from "./ResourceComparator";
 import { parseScenarioFile, serializeScenario } from "./scenarioFiles";
 
 const fmt = (v: number, digits = 0) =>
@@ -55,7 +56,7 @@ function load(): Scenario | null {
     return null;
   }
 }
-type View = "lab" | "data" | "mission" | "compare" | "sources" | "method";
+type View = "resources" | "lab" | "data" | "mission" | "compare" | "sources" | "method";
 const phases = [
   {
     name: "Caracterizar",
@@ -429,6 +430,7 @@ export default function App() {
     }
   }
   const navs: [View, string][] = [
+    ["resources", "Recursos"],
     ["lab", "Laboratório"],
     ["data", "Dados lunares"],
     ["mission", "Missão"],
@@ -512,7 +514,13 @@ export default function App() {
               <Orbit size={14} /> RECURSOS LUNARES · ÁGUA
             </span>
             <h1>
-              {view === "lab" ? (
+              {view === "resources" ? (
+                <>
+                  Comparar antes
+                  <br />
+                  <em>de minerar.</em>
+                </>
+              ) : view === "lab" ? (
                 <>
                   A mesma molécula.
                   <br />
@@ -551,7 +559,9 @@ export default function App() {
               )}
             </h1>
             <p>
-              {view === "lab"
+              {view === "resources"
+                ? "Recursos diferentes exigem evidências, operações e utilizações diferentes. Compare alternativas antes de defender uma missão."
+                : view === "lab"
                 ? "O que vem junto com o gelo muda a forma de extrair, separar e utilizar a água. Explore essas diferenças."
                 : view === "data"
                   ? "Consulte metadados de produtos lunares no acervo público e registre o que eles permitem concluir."
@@ -577,6 +587,7 @@ export default function App() {
             </button>
           </div>
         </section>
+        {view === "resources" && <ResourceComparator />}
         {view === "lab" && (
           <>
             <div className="lab-toolbar">

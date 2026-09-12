@@ -8,6 +8,8 @@ Um laboratório interativo para entender como o material encontrado muda uma mis
 
 **MVP funcional v0.1.0.** [Aplicação ao desafio](./docs/desafio.md) · [Integrações e dados externos](./docs/integracoes.md) · [Validação e limites](./docs/validacao.md)
 
+[Comparação de recursos](./docs/recursos.md)
+
 ![Qualidade](https://github.com/SouBeatrizKaroline/SpaceMiningChallenge_AquaLunar/actions/workflows/ci.yml/badge.svg)
 
 ![Interface do AQUA Lunar com corte conceitual e controles de material](./docs/preview.png)
@@ -75,11 +77,12 @@ O núcleo do projeto está alinhado ao desafio ao explicitar escolhas, perdas, i
 ## Como utilizar para construir a missão
 
 1. Abra **Laboratório** e escolha a finalidade. Ajuste somente premissas que a equipe consegue explicar. Salve e exporte o cenário quando quiser comparar uma versão.
-2. Em **Dados lunares**, consulte uma camada no catálogo ODE. Abra o produto original, leia o rótulo e guarde apenas os registros que ajudam a responder uma pergunta da missão. O catálogo lista metadados, não mede gelo automaticamente.
-3. Em **Missão**, dê um nome à missão e informe a região. Registre ao menos três evidências, cada uma com instrumento ou camada, produto, interpretação, limite e link primário.
-4. Descreva a operação de acesso, captura e separação. O painel incorpora as premissas atuais do laboratório, mas elas continuam sendo hipóteses até serem sustentadas por dados e ensaios.
-5. Explique a utilização do produto e preencha o registro de verificação: fontes abertas, ferramentas usadas, hipóteses mantidas e informações descartadas.
-6. Exporte o rascunho de missão em Markdown. Use-o como base para organizar os slides, revisando cada afirmação contra a fonte original.
+2. Abra **Recursos** antes de assumir que água é a melhor escolha. Compare água, ilmenita, piroclásticos, PKT e hélio-3 com critérios que a equipe possa sustentar. Leia o guia de [comparação de recursos](./docs/recursos.md).
+3. Em **Dados lunares**, consulte uma camada no catálogo ODE. Abra o produto original, leia o rótulo e guarde apenas os registros que ajudam a responder uma pergunta da missão. O catálogo lista metadados, não mede gelo automaticamente.
+4. Em **Missão**, dê um nome à missão e informe a região. Registre ao menos três evidências, cada uma com instrumento ou camada, produto, interpretação, limite e link primário.
+5. Descreva a operação de acesso, captura e separação. O painel incorpora as premissas atuais do laboratório somente se água for a escolha. Para outro recurso, a equipe deve definir parâmetros específicos.
+6. Explique a utilização do produto e preencha o registro de verificação: fontes abertas, ferramentas usadas, hipóteses mantidas e informações descartadas.
+7. Exporte a comparação e o rascunho de missão em Markdown. Use-os como base para organizar os slides, revisando cada afirmação contra a fonte original.
 
 ### Antes de entregar
 
@@ -168,6 +171,8 @@ src/
   App.tsx          Interface, diagrama e navegação
   model.ts         Catálogo, balanços, perguntas e relatório
   lunarApi.ts      Consulta e validação de metadados do ODE
+  resourceDecision.ts Catálogo de alternativas e decisão comparativa
+  ResourceComparator.tsx Comparação ajustável entre recursos
   scenarioFiles.ts Importação e exportação de cenários em JSON
   styles.css       Identidade visual e responsividade
 tests/
@@ -178,6 +183,7 @@ docs/
   arquitetura.md  Estrutura e evolução
   desafio.md      Uso no Space Mining Challenge
   integracoes.md  ODE, procedência, privacidade e limites
+  recursos.md     Alternativas, fontes e método de comparação
   validacao.md    Testes realizados e limites da verificação
 ```
 
