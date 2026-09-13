@@ -9,6 +9,7 @@ Estas capturas preservam o caminho de consulta no Moon Trek e no LROC QuickMap. 
 - [Camadas Diviner, PSR e LOLA](quickmap-diviner-psr-lola.png): painel que identifica as três camadas utilizadas.
 - [PSRs sobre o terreno](capturas-quickmap/18-psr-sobre-terreno.png): regiões permanentemente sombreadas sobre a base LROC.
 - [LOLA Slope](capturas-quickmap/09-lola-slope-ativo.png): camada de declividade para avaliar mobilidade. Lacunas ou valores inválidos representam ausência de dado naquele pixel.
+- [Consulta LEND em Shackleton](interpretacao-capturas.md#registro-lend-criado-para-shackleton): registro reproduzível da camada **Polar Water Equivalent Hydrogen**, no ponto 89,60000° S, 129,20000° E e escala de 20 km.
 
 ## Galeria completa
 
@@ -41,4 +42,5 @@ Estas capturas preservam o caminho de consulta no Moon Trek e no LROC QuickMap. 
 - **PSR** indica sombra permanente, não mede diretamente água.
 - **Diviner** caracteriza condições térmicas; temperatura não confirma volume de gelo.
 - **LOLA** informa topografia e declividade, não presença de hidrogênio.
-- **LEND** ainda deve ser registrado para acrescentar o indicador indireto de hidrogênio.
+- **LEND** foi registrado por meio de uma consulta reproduzível em Shackleton; ele indica hidrogênio equivalente em água de modo indireto e não confirma, sozinho, gelo extraível.
+
