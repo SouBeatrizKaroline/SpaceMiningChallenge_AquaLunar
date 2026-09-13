@@ -27,7 +27,7 @@ Este documento fecha a base científica da Missão Aurora Sul sem transformar in
 
 **Dado real de instrumento:** a documentação técnica da LRO informa que Diviner produz mapeamento térmico orbital, com produtos de mapeamento tipicamente em torno de 500 m por pixel. Ela explica que regiões permanentemente sombreadas entre aproximadamente 40 K e 110 K podem reter água gelada por escalas geológicas e que o instrumento tem sensibilidade para mapear PSRs até cerca de 30 K.
 
-**Registro da equipe:** [consulta Diviner Global Max Temp](https://bit.ly/4h2Juvw), acompanhada da [captura de configuração](evidencias/quickmap-diviner-psr-lola.png).
+**Registro da equipe:** [consulta Diviner Global Max Temp](https://bit.ly/4h2Juvw), acompanhada da [captura de configuração](../evidencias/quickmap-diviner-psr-lola.png).
 
 **Como orienta a decisão:** temperatura e sombra são critérios para identificar onde investigar estabilidade potencial de gelo e dimensionar controle térmico dos equipamentos.
 
@@ -55,7 +55,7 @@ Este documento fecha a base científica da Missão Aurora Sul sem transformar in
 
 **Dado real de produto:** a NASA disponibiliza o conjunto **Site04: Shackleton rim**, com elevação, declividade, incerteza e contagem de pontos LOLA em GeoTIFF de 5 m por pixel. A própria página alerta que, em produtos polares de 5 m, grande parte dos pixels é interpolada entre perfis, portanto a incerteza deve acompanhar qualquer conclusão de rota.
 
-**Registro da equipe:** [consulta LOLA e terreno](https://quickmap.lroc.im-ldi.com/?prjExtent=-114847.40672%2C-65694.9429387%2C130596.834084%2C52385.6449216&earthShadowEnabled=true&proj=27&stack=3314%2C3351&defs=N4IgzGCMAsIFygPYAcCGBjAlgFwJ70gF8AacMAVkniTSzwMMKA&time=2026-10-18T05%3A49%3A36.085Z&startTime=2026-09-21T14%3A31%3A06.003Z&stopTime=2026-10-21T03%3A13%3A06.003Z) e [camada identificada no QuickMap](evidencias/quickmap-diviner-psr-lola.png).
+**Registro da equipe:** [consulta LOLA e terreno](https://quickmap.lroc.im-ldi.com/?prjExtent=-114847.40672%2C-65694.9429387%2C130596.834084%2C52385.6449216&earthShadowEnabled=true&proj=27&stack=3314%2C3351&defs=N4IgzGCMAsIFygPYAcCGBjAlgFwJ70gF8AacMAVkniTSzwMMKA&time=2026-10-18T05%3A49%3A36.085Z&startTime=2026-09-21T14%3A31%3A06.003Z&stopTime=2026-10-21T03%3A13%3A06.003Z) e [camada identificada no QuickMap](../evidencias/quickmap-diviner-psr-lola.png).
 
 **Como orienta a decisão:** antes de comprometer a lavra, a equipe compara declividade, incerteza, distância e iluminação entre o ponto de implantação e a área de prospecção dentro de Shackleton.
 
@@ -71,4 +71,4 @@ A decisão não afirma que Shackleton possui a maior concentração de água. El
 
 ## Dados que permanecem de engenharia
 
-O orçamento de 2.700 kg, potência nominal de 8 kW, potência média de 4 kW e armazenamento de 120 kWh continuam sendo **premissas de planejamento da equipe**, descritas no [orçamento Aurora Sul](orcamento-referencia-aurora-sul.md). Eles não foram medidos pelas fontes acima e precisam ser revisados antes do pitch.
+O orçamento de 2.700 kg, potência nominal de 8 kW, potência média de 4 kW e armazenamento de 120 kWh continuam sendo **premissas de planejamento da equipe**, descritas no [orçamento Aurora Sul](../missao/orcamento-referencia-aurora-sul.md). Eles não foram medidos pelas fontes acima e precisam ser revisados antes do pitch.

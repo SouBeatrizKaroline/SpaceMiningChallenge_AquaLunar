@@ -51,3 +51,13 @@ Este inventário preserva os links enviados durante a pesquisa. Fontes primária
 ## Como usar esta lista
 
 Use os portais e produtos científicos para sustentar a decisão. Para cada afirmação da apresentação, registre instrumento ou produto, o que foi observado, data da consulta e limite da interpretação. Os links de contexto ajudam a situar a discussão, mas não devem ser citados como prova de presença, quantidade ou viabilidade de extração de gelo.
+
+## Apresentação e referências da reunião de 12/09/2026
+
+- [Apresentação da equipe](https://canva.link/doiqov0r8o01ntk), fornecida pela equipe; acesso público e conteúdo não confirmados nesta atualização.
+- [PRIME-1, NASA](https://www.nasa.gov/mission/polar-resources-ice-mining-experiment-1-prime-1/).
+- [MSolo: visão geral e resultados, abril de 2026](https://ntrs.nasa.gov/api/citations/20260003150/downloads/MSolo%20PRIME-1%20overview%20and%20results%20-%20LSSW.pdf).
+- [Shackleton: iluminação e sombra](https://science.nasa.gov/resource/shackleton-craters-illuminated-rim-shadowed-interior/).
+- [Eletrólise magnetohidrodinâmica em microgravidade](https://www.nasa.gov/general/magnetohydrodynamic-drive-for-hydrogen-and-oxygen-production/).
+- [Água e gelos lunares](https://science.nasa.gov/moon/moon-water-and-ices/).
+- [Referências comentadas e limites](referencias-tecnicas.md).

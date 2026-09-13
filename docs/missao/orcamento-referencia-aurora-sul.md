@@ -52,3 +52,13 @@ Uma captura serve como evidência quando mostra a área, a camada e a escala. A 
 ## Critério para rever a escolha
 
 A Aurora Sul deve rever o local ou o perfil de operação se as camadas indicarem baixa iluminação, terreno incompatível, rota sem acesso, ausência de evidência complementar para hidrogênio ou profundidade de permafrost incompatível com a capacidade de escavação e energia.
+
+## Revisão necessária para a prioridade em propelentes
+
+As referências acima foram preservadas para comparação. **2.700 kg, 8 kW e 120 kWh não são um dimensionamento validado da cadeia de H₂/O₂.** A tabela ainda não individualiza eletrólise, secagem/polimento de gases, compressão ou liquefação, armazenamento criogênico, perdas por evaporação, transferência ao consumidor e eventual transporte orbital. Esses itens não devem ser considerados cobertos apenas pela contingência.
+
+Há também uma compatibilidade a verificar: 120 kWh utilizáveis divididos pelos 380 kg destinados a energia equivalem a aproximadamente 316 Wh/kg para o conjunto inteiro, antes de separar a massa dos painéis, controle e distribuição. Não há especificação de bateria que sustente essa hipótese neste documento. Rever capacidade, massa e energia de sobrevivência com dados de componentes e condições ambientais.
+
+A 4 kW constantes, 120 kWh sustentariam 30 horas teóricas sem geração. Isso não demonstra operação contínua por 24 meses. A planta precisa de recarga, programação de cargas, margem para degradação e dimensionamento pela pior sombra do ponto selecionado. Ver [energia e painéis](../estudos/energia-paineis.md).
+
+O total é payload de referência entregue à superfície; não fecha massa de lançamento, veículo de transferência, propulsão e sistema de pouso. Confirmar o limite e a fronteira de massa exigidos pelo desafio antes de alegar atendimento integral.

@@ -38,7 +38,7 @@ O catálogo trata carregamento, ausência de resultados e erros de consulta. A d
 
 Cada consulta pede até seis produtos, com paginação por deslocamento. Um cache em memória por cinco minutos evita repetir consultas idênticas; ele termina ao recarregar a página. O cliente usa um limite de 20 segundos por requisição. O estado de sucesso no corpo da resposta também é verificado, pois uma resposta HTTP 200 pode conter um erro do serviço.
 
-Metadados externos são apresentados como texto e links de referência. A aplicação não executa código fornecido pelo catálogo, não baixa automaticamente rasters científicos e não interpreta valores de pixels. Consulte [contrato e limites da integração](./integracoes.md).
+Metadados externos são apresentados como texto e links de referência. A aplicação não executa código fornecido pelo catálogo, não baixa automaticamente rasters científicos e não interpreta valores de pixels. Consulte [contrato e limites da integração](integracoes.md).
 
 ## Distribuição
 

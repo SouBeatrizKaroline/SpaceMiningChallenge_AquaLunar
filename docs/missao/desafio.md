@@ -18,7 +18,7 @@ O briefing fornecido estabelece slides de até 14 páginas, pitch de 5 minutos e
 
 ## Registro de evidências incluído
 
-- [Missão Aurora Sul](./missao-aurora-sul.md): hipótese para o polo sul com três registros de fontes reais, limites e links primários.
+- [Missão Aurora Sul](missao-aurora-sul.md): hipótese para o polo sul com três registros de fontes reais, limites e links primários.
 
 Os registros da Aurora Sul fundamentam uma área de estudo, sem alegar uma reserva confirmada ou uma mina definida. A equipe precisa executar e registrar a análise de camadas no Moon Trek antes da submissão. A apresentação e o pitch pertencem à entrega da equipe e não fazem parte do código.
 
@@ -40,3 +40,7 @@ O briefing exige transparência sobre o uso de inteligência artificial e sobre 
 Por que este material, nesta região, com esta rota e para esta finalidade?
 
 Um bom uso do protótipo é explicitar uma hipótese e mostrar qual medição poderia confirmá-la ou mudar a decisão. O fluxo de comparação não deve substituir a escolha final da equipe.
+
+## Apresentação e aprofundamento
+
+A equipe forneceu a [apresentação no Canva](https://canva.link/doiqov0r8o01ntk). O link está registrado; contagem, conteúdo e acesso público ainda precisam de conferência. O [README principal](../../README.md) resume decisão, evidências, extração, utilização e processo de decisão. Os [estudos técnicos](../estudos/README.md) aprofundam as perguntas da reunião com prioridade em H₂/O₂ para futura cadeia de propelentes.

@@ -2,11 +2,11 @@
 
 ## Decisão
 
-**A Missão Aurora Sul propõe extrair água gelada do regolito na cratera Shackleton, no polo sul lunar, condicionando o início da extração à confirmação local, para reduzir a massa de consumíveis lançados da Terra, abastecer a operação lunar e permitir expedições de maior duração.**
+**A Missão Aurora Sul propõe extrair água gelada do regolito na cratera Shackleton, no polo sul lunar, condicionando o início da extração à confirmação local, para estudar a produção de hidrogênio e oxigênio destinados a uma futura cadeia de propelentes e reduzir a dependência de insumos enviados da Terra.**
 
 A decisão é provisória. Ela prioriza água porque o uso local reduz a dependência de massa lançada da Terra, mas a equipe não trata a presença de hidrogênio, a sombra permanente ou a baixa temperatura como prova de uma jazida explorável.
 
-O [dossiê de dados reais de Shackleton](dados-reais-shackleton.md) registra os resultados científicos que sustentam a hipótese e os limites que impedem tratar a área como reserva confirmada. A [comparação das regiões polares](comparacao-regioes-polares.md) mostra por que Cabeus, Haworth, Shoemaker e Faustini foram considerados antes da escolha.
+O [dossiê de dados reais de Shackleton](../pesquisa/dados-reais-shackleton.md) registra os resultados científicos que sustentam a hipótese e os limites que impedem tratar a área como reserva confirmada. A [comparação das regiões polares](../pesquisa/comparacao-regioes-polares.md) mostra por que Cabeus, Haworth, Shoemaker e Faustini foram considerados antes da escolha.
 
 ## Área de estudo
 
@@ -14,7 +14,7 @@ O [dossiê de dados reais de Shackleton](dados-reais-shackleton.md) registra os 
 - Referência geográfica: o centro de Shackleton fica próximo de 89,6° S e 129,2° E.
 - Delimitação operacional: a equipe deve desenhar no Moon Trek uma área de pouso e uma área de prospecção antes de apresentar a proposta. Não há coordenada de lavra definida neste documento.
 
-O [orçamento de referência](./orcamento-referencia-aurora-sul.md) adota 2.700 kg de payload de planejamento e uma arquitetura solar de 8 kW nominais. São hipóteses transparentes para comparar massa, autonomia e risco, não números fornecidos pelo desafio ou confirmados para Shackleton.
+O [orçamento de referência](orcamento-referencia-aurora-sul.md) adota 2.700 kg de payload de planejamento e uma arquitetura solar de 8 kW nominais. São hipóteses transparentes para comparar massa, autonomia e risco, não números fornecidos pelo desafio ou confirmados para Shackleton.
 
 ## Registros de evidência
 
@@ -67,7 +67,7 @@ A equipe deve completar este quadro depois de analisar a área no navegador. Ele
 
 Links de trabalho: [Moon Trek](https://trek.nasa.gov/moon/), [LROC QuickMap](https://quickmap.lroc.im-ldi.com/), [Lunar Orbital Data Explorer](https://ode.rsl.wustl.edu/moon/).
 
-O [caderno colaborativo no Canva](https://canva.link/e5xxa0ukj24cs3o) reúne pesquisas, anotações e percepções da equipe. O inventário dos demais links está em [links compartilhados](links-compartilhados.md).
+O [caderno colaborativo no Canva](https://canva.link/e5xxa0ukj24cs3o) reúne pesquisas, anotações e percepções da equipe. O inventário dos demais links está em [links compartilhados](../referencias/links-compartilhados.md).
 
 ### Consulta QuickMap registrada
 
@@ -75,7 +75,7 @@ A equipe registrou a consulta de terreno no QuickMap em projeção estereográfi
 
 A camada térmica foi registrada separadamente: [Diviner Global Max Temp no QuickMap](https://bit.ly/4h2Juvw). A captura serve para reproduzir a configuração de visualização da temperatura máxima; a interpretação permanece limitada ao que a camada e sua legenda informam.
 
-Registros adicionais enviados pela equipe: [consulta 1](https://bit.ly/3Vr5I3e) e [consulta 2](https://bit.ly/3V6I0sX). A [captura de configuração das camadas](evidencias/quickmap-diviner-psr-lola.png) identifica Global Max Temp, PSRs e LOLA_SPOLE 5M [Slope] no painel do QuickMap.
+Registros adicionais enviados pela equipe: [consulta 1](https://bit.ly/3Vr5I3e) e [consulta 2](https://bit.ly/3V6I0sX). A [captura de configuração das camadas](../evidencias/quickmap-diviner-psr-lola.png) identifica Global Max Temp, PSRs e LOLA_SPOLE 5M [Slope] no painel do QuickMap.
 
 A equipe também criou a [consulta LEND para a referência de Shackleton](<https://quickmap.lroc.im-ldi.com/layers?prjExtent=-63200.3965068%2C-67666.1295457%2C81999.6034932%2C52333.8704543&selectedFeature=%40%40user-defined%2CK7JmI&earthShadowEnabled=true&proj=27&stack=3314%2C3035&defs=N4IgzADGCsIFygPYAcCGBjAlgFwJ7wEYBfAGnDAIBZ4k0s9Ciig&features=129.2%2C-89.6%40%40%7B%22id%22%3A%22K7JmI%22%7D>), com ponto em 89,60000° S, 129,20000° E, escala de 20 km e a camada **Polar Water Equivalent Hydrogen** ativa. O registro documenta a consulta de hidrogênio equivalente em água; não atribui um teor ao ponto sem leitura explícita do pixel e da legenda.
 
@@ -91,7 +91,7 @@ Este é um conceito de engenharia, não uma operação demonstrada em Shackleton
 
 Tudo que a operação usa precisa descer da Terra antes do início da missão. Para suportar 24 meses sem reabastecimento, o payload deve incluir pouso e estrutura, energia e armazenamento, comunicações, navegação, mobilidade, prospecção, escavação, transporte de regolito, reator fechado, captura de vapor, condensação, tratamento, proteção contra poeira, sensores, peças e margem de contingência.
 
-O projeto não atribui massas sem uma fonte de engenharia. O orçamento de massa é critério de decisão: se a rota para uma região exigir mais energia, escavação ou redundância do que a carga lançada suporta, a equipe deve rever o local ou a cadeia de extração.
+O orçamento existente atribui massas ilustrativas de planejamento, ainda sem dimensionamento validado de cada subsistema. O orçamento de massa é critério de decisão: se a rota para uma região exigir mais energia, escavação ou redundância do que a carga lançada suporta, a equipe deve rever o local ou a cadeia de extração.
 
 ## Energia e condições ambientais
 
@@ -111,7 +111,9 @@ Medidas propostas para análise de engenharia: componentes tolerantes à radiaç
 
 ## Utilização
 
-A primeira prioridade é água de processo e suporte à operação, reduzindo a dependência de reabastecimento enviado da Terra. Depois de purificada, uma fração pode servir ao sistema de suporte à vida e ajudar a prolongar expedições. Outra fração pode alimentar eletrólise para produzir oxigênio e hidrogênio, desde que a massa, energia, pureza e armazenamento justifiquem essa rota.
+A prioridade atual, registrada pela equipe em 12/09/2026, é estudar a produção de H₂ e O₂ para uma futura cadeia de propelentes. A água de processo é um intermediário; uso potável e oxigênio respirável exigiriam qualificação própria. Reciclagem espacial não demonstra que essa escolha seja a mais barata.
+
+A rota e suas alternativas estão em [propelentes e logística](../estudos/propelentes-logistica.md). O orçamento existente ainda não fecha eletrólise, condicionamento de gases, eventual liquefação, armazenamento e transferência. [Estudos da reunião](../estudos/README.md) · [Apresentação da equipe](https://canva.link/doiqov0r8o01ntk).
 
 ## Registro de ferramentas e IA
 
